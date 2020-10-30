@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration packagingData="true">
+    <jmxConfigurator/>
+    <springProperty name="logdir" source="intcomdata.logs.dir"/>
+    <property name="LOGS" value="${logdir}" />
+
+    <appender name="Console"
+              class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>
+                %d{ISO8601} %highlight(%-5level) [%blue(%t)] %yellow(%logger{1.}): %msg%n%xThrowable
+            </Pattern>
+        </layout>
+    </appender>
+
+    <appender name="RollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder>
+            <Pattern>%d %p %logger{1.} [%t] %m%n%xThrowable</Pattern>
+        </encoder>
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${LOGS}/log-%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
+            <maxFileSize>10MB</maxFileSize>
+            <totalSizeCap>200MB</totalSizeCap>
+            <cleanHistoryOnStart>true</cleanHistoryOnStart>
+            <!-- conserva i log per questo numero di giorni -->
+            <maxHistory>180</maxHistory>
+        </rollingPolicy>
+    </appender>
+
+    <springProfile name="!deployed">
+        <root level="debug">
+            <appender-ref ref="Console" />
+            <appender-ref ref="RollingFile" />
+        </root>
+
+        <logger name="it.pic" level="trace"/>
+    </springProfile>
+
+    <springProfile name="deployed">
+        <root level="info">
+            <appender-ref ref="Console" />
+            <appender-ref ref="RollingFile" />
+        </root>
+
+        <logger name="it.pic" level="info"/>
+    </springProfile>
+
+</configuration>

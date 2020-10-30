@@ -1,0 +1,6 @@
+intcomdata:
+  logs:
+    s3backup:
+      enabled: true
+      bucket: thor-development
+

@@ -1,0 +1,37 @@
+# defaults
+server:
+  ssl:
+    key-alias: corp-edison
+    key-store: ./corp-edison.p12
+    key-password: changeit
+    key-store-password: changeit
+    enabled: true
+  port: 8443
+  http:
+    port: 8080
+  shutdown: graceful
+  
+cxf:
+  path: /comdata
+
+intcomdata:
+  logs:
+    dir: ./logs
+    s3backup:
+      enabled: false
+      remoteDir: intcomdata/logs
+      # il bucket cambia in base all'ambiente
+      bucket: ''
+
+management:
+  health:
+    probes:
+      enabled: true
+  metrics:
+    export:
+      simple:
+        enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: '*'

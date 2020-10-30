@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: intcomdata-deployment
+  labels:
+    app: thr-qa-comdata-tg
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: thr-qa-comdata-tg
+  template:
+    metadata:
+      labels:
+        app: thr-qa-comdata-tg
+    spec:
+      serviceAccountName: thr-qa-sa
+      securityContext:
+        fsGroup: 9000
+      containers:
+      - name: intcomdata-qa
+        image: 549662860827.dkr.ecr.eu-central-1.amazonaws.com/thor/intcomdata-qa:1.0.0-SNAPSHOT-20201019151005
+
+        ports:
+        - containerPort: 8443
+
+        volumeMounts:
+        - name: cert
+          mountPath: "/etc/pki/tls/certs/internal/"
+          readOnly: true
+
+        env:
+        - name: APP_ENV
+          value: "preprod"
+
+        lifecycle:
+          preStop:
+            exec:
+              command: ["/bin/sh", "-c", "killall java"]
+
+        livenessProbe:
+          httpGet:
+            scheme: HTTPS
+            path: /actuator/health/liveness
+            port: 8443
+
+        readinessProbe:
+          periodSeconds: 10
+          failureThreshold: 30
+          httpGet:
+            scheme: HTTPS
+            path: /actuator/health/readiness
+            port: 8443
+
+      volumes:
+      - name: cert
+        secret:
+          secretName: thor-integrazioni-qa.corp.awsedison.it

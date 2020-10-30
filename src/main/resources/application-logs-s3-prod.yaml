@@ -1,0 +1,5 @@
+intcomdata:
+  logs:
+    s3backup:
+      enabled: true
+      bucket: thr-prod-s3

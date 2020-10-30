@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="AISCutOff" targetNamespace="http://THM/AIS/AISCutOff" xmlns:bons1="http://thor.edison.it" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://THM/AIS/AISCutOff">
+    <wsdl:types>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://THM/AIS/AISCutOff">
+            <xs:import namespace="http://thor.edison.it"/>
+      <xs:element name="invoke">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="CutOff" nillable="true" type="bons1:CutOff"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="invokeResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Lista_CutOff" nillable="true" type="bons1:TSE_CUTOFF"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://thor.edison.it" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xsd:complexType name="Azione">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="azione" type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="utente" type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="data" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+      <xs:complexType name="CutOff">
+		<xs:sequence>
+			<xs:element maxOccurs="1" minOccurs="0" name="id" nillable="false" type="xs:string"/>
+			<xs:element maxOccurs="1" minOccurs="0" name="destinatario" nillable="false" type="xs:string"/>
+			<xs:element maxOccurs="1" minOccurs="0" name="servizio" nillable="false" type="xs:string"/>
+			<xs:element maxOccurs="1" minOccurs="0" name="utility" nillable="false" type="xs:string"/>
+			<xs:element maxOccurs="1" minOccurs="0" name="maxRichieste" nillable="false" type="xs:string"/>
+			<xs:element maxOccurs="1" minOccurs="0" name="numeroRichieste" nillable="false" type="xs:string"/>
+			<xs:element maxOccurs="1" minOccurs="0" name="stato" nillable="false" type="xs:string"/>
+			<xs:element maxOccurs="1" minOccurs="0" name="tipoDestinatario" nillable="false" type="xs:string"/>
+			<xs:element maxOccurs="1" minOccurs="0" name="created" nillable="false" type="xs:string"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="azioniUtente" nillable="false" type="bons1:Azione"/>
+			<xs:element maxOccurs="1" minOccurs="0" name="primaRiga" nillable="false" type="xs:string"/>
+			<xs:element maxOccurs="1" minOccurs="0" name="formato" nillable="false" type="xs:string"/>
+			<xs:element maxOccurs="1" minOccurs="0" name="separatore" nillable="false" type="xs:string"/>
+			<xs:element maxOccurs="1" minOccurs="0" name="idTemplate" nillable="false" type="xs:string"/>
+			<xs:element maxOccurs="1" minOccurs="0" name="flusso" nillable="false" type="xs:string"/>
+			<xs:element maxOccurs="1" minOccurs="0" name="linkFile" nillable="false" type="xs:string"/>
+			<xs:element maxOccurs="1" minOccurs="0" name="utente" nillable="false" type="xs:string"/>
+			<xs:element maxOccurs="1" minOccurs="0" name="flagSelected" nillable="false" type="xs:boolean"/>
+			<xs:element maxOccurs="1" minOccurs="0" name="dataDecorrenza" nillable="false" type="xs:string"/>
+			<xs:element maxOccurs="1" minOccurs="0" name="email" nillable="false" type="xs:string"/>
+			<xs:element maxOccurs="1" minOccurs="0" name="RagioneSociale" nillable="false" type="xs:string"/>
+			<xs:element maxOccurs="1" minOccurs="0" name="Portale" nillable="false" type="xs:string"/>
+			<xs:element maxOccurs="1" minOccurs="0" name="critico" nillable="false" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+      <xs:complexType name="TSE_CUTOFF">
+		<xs:sequence>
+			<xs:element form="qualified" maxOccurs="unbounded" minOccurs="0" name="cutOff" nillable="false" type="bons1:CutOff"/>
+		</xs:sequence>
+	</xs:complexType>
+    </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="invokeMsg">
+    <wsdl:part element="tns:invoke" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="invokeResponseMsg">
+    <wsdl:part element="tns:invokeResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="AISCutOff">
+    <wsdl:operation name="invoke">
+      <wsdl:input message="tns:invokeMsg"/>
+      <wsdl:output message="tns:invokeResponseMsg"/>
+    </wsdl:operation>
+  </wsdl:portType>
+    <wsdl:binding name="AISCutOff_AISCutOffHttpBinding" type="tns:AISCutOff">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="invoke">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+    <wsdl:service name="AISCutOff_AISCutOffHttpService">
+    <wsdl:port binding="tns:AISCutOff_AISCutOffHttpBinding" name="AISCutOff_AISCutOffHttpPort">
+      <soap:address location="http://localhost:9080/THORProcessiWeb/sca/AISCutOff"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

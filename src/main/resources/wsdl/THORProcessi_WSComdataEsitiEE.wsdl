@@ -1,0 +1,646 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="IEsitiComdataEE" targetNamespace="http://THORProcessi/IEsitiComdataEE" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://THORProcessi/IEsitiComdataEE" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://THORProcessi/IEsitiComdataEE" xmlns:bons0="http://thor.edison.it">
+            <xsd:import namespace="http://thor.edison.it"/>
+      <xsd:element name="esiti">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="TSE_COMDATA_EE_REQ" nillable="true" type="bons0:TSE_COMDATA_EE_REQ"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="esitiResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="TSE_COMDATA_EE_RESP" nillable="true" type="bons0:TSE_COMDATA_EE_RESP"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://thor.edison.it" xmlns:bons0="http://thor.edison.it" xmlns:tns="http://thor.edison.it">
+      <xs:complexType name="Preventivo">
+		<xs:annotation>
+      <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt;&#13;
+&lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt;&#13;
+&lt;/HEAD&gt;&#13;
+&lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Contiene le informazioni legate ad un preventivo.&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+    </xs:annotation>
+		<xs:sequence>
+			<xs:element maxOccurs="1" minOccurs="0" name="id" nillable="false" type="xs:string">
+				<xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;id Thor del preventivo&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="codiceDL" nillable="false" type="xs:string">
+				<xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt; &lt;P&gt;codice del DL associato al preventivo &lt;/P&gt;&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="importo" nillable="false" type="xs:string">
+				<xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;importo del preventivo&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="dataScadenza" nillable="false" type="xs:string">
+				<xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;data di scadenza&amp;nbsp;del preventivo&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="giorniMaxEsecuzioneLavoro" nillable="false" type="xs:string">
+				<xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt; &lt;P&gt;numero di giorni massimi per l'esecuzione del lavoro &lt;/P&gt;&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="dettaglio" nillable="false" type="tns:ArrayOfDettaglioPreventivo">
+				<xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;dettaglio con singole voci di costo&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="note" nillable="false" type="xs:string">
+				<xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;note riguardanti il preventivo, può contenere condizioni particolari di applicazione del preventivo&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+      <xsd:complexType name="ArrayOfDettaglioPreventivo">
+		<xsd:sequence>
+			<xsd:element form="unqualified" maxOccurs="unbounded" minOccurs="0" name="item" type="bons0:DettaglioPreventivo">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+      <xs:complexType name="DettaglioPreventivo">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="progressivo" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt; &lt;P&gt;numero progressivo, 1..n della voce di dettaglio &lt;/P&gt;&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="importo" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;importo della singola voce di dettaglio&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="descrizione" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt; &lt;P&gt;descrizione della voce di dettaglio &lt;/P&gt;&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+      <xs:complexType name="Cliente">
+    <xs:annotation>
+      <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Anagrafica cliente finale&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="nome" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Nome del cliente&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="cognome" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Cognome del cliente&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="ragioneSociale" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Ragione sociale della società&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="codiceFiscale" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Codice fiscale&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="partitaIva" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Partita Iva&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="telefono" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt; &lt;P&gt;Numero di telefono &lt;/P&gt;&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="cellulare" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt; &lt;P&gt;Numero di cellulare &lt;/P&gt;&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="email" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Indirizzo Email&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="fax" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Numero Fax&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="cfStraniero" nillable="false" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+      <xs:complexType name="DatiTecniciPreventivo">
+    <xs:annotation>
+      <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Contiene le informazioni del preventivo e gli eventuali dati tecnici&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="preventivo" nillable="false" type="tns:Preventivo">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Contiene le infomazioni dell'oggetto preventivo compreso il dettaglio dei costi&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="dataInvio" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Data invio del preventivo&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="dataRichiesta" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Data richiesta preventivo al DL&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="periodoValiditaMesi" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Periodo di validità del preventivo espresso in mesi&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="tipo" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt; &lt;P&gt;Tipologia preventivo &lt;/P&gt; &lt;P&gt;Esempio: &lt;/P&gt; &lt;P&gt;P = Preventivo&lt;BR&gt;M = Misto&lt;BR&gt;E = A carico Enel&lt;BR&gt;F = Forfait &lt;/P&gt;&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="elementiNecessari" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Indica gli elementi necessari per l'esecuzione del lavoro&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="documentazione" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Indica la documentazione necessaria per l'esecuzione del lavoro&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="tempiAutorizzazioni" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Stima dei tempi previsti per gli atti autorizzativi&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="modalitaAccettazionePreventivo" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Modalità di manifestazione di accettazione del preventivo&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="distanzaCabina" nillable="false" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="nuovaCabina" nillable="false" type="tns:BooleanType">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt; &lt;P&gt;Necessaria nuova cabina &lt;/P&gt;&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="raddQtaDistanza" nillable="false" type="tns:BooleanType">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;raddQtaDistanza&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="dataPrevistaIntervento" type="xs:string">
+			</xs:element>
+			<xs:element minOccurs="0" name="fattibilita" type="xs:string">
+			</xs:element>
+			<xs:element minOccurs="0" name="numeroTentativi" type="xs:string">
+			</xs:element>
+    </xs:sequence>
+  </xs:complexType>
+      <xs:simpleType name="BooleanType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+      <xsd:complexType name="TSE_COMDATA_EE_RESP">
+		<xsd:sequence>
+			<xsd:element form="unqualified" minOccurs="0" name="tracking" type="bons0:Tracking">
+			</xsd:element>
+			<xsd:element form="unqualified" minOccurs="0" name="ammissibilita" type="bons0:Ammissibilita">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+      <xs:complexType name="Ammissibilita">
+    <xs:annotation>
+      <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Contiene le informazioni sull'ammissibilità&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="esito" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt; &lt;P&gt;Esito dell'ammissibilità. &lt;/P&gt; &lt;P&gt;Può contenere i seguenti valori: &lt;/P&gt;0 = Inammissibile DL&lt;BR&gt;1 = Ammissibile DL&lt;BR&gt;2 = Inammissibile THOR&lt;BR&gt;3 = Ammissibile THOR&lt;BR&gt;4 = Ammissibile salvo buon fine THOR&lt;BR&gt;5 = Ammissibile salvo buon fine DL &lt;BR&gt;&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="causale" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Codice causale della motivazione di inammissibilità.&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="motivazione" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Motivazione dell'inamissibilità.&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="data" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt; &lt;P&gt;Data di ricezione ammissibilità o inammissibilità. &lt;/P&gt;&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+      <xs:complexType name="Tracking">
+    <xs:annotation>
+      <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt;&#13;
+&lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt;&#13;
+&lt;/HEAD&gt;&#13;
+&lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Contiene tutti i campi di tracking obbligatori per la comunicazione.&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="commodity" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Indica se la richiesta sia Elettrica o Gas. Es: EE o GAS&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="servizio" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Definisce tutti i servizi gestiti tra area gestionale e distributore. Es: VL1, A01...&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="codiceFlusso" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Rappresenta tutti i flussi gestiti nella comunicazione tra area gestionale e Thor. Es: Creazione Richiesta, Conferma ...&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="societaVendita" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Società di vendita di appartenenza del punto. Es: Edison Energia, Eneco....&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="areaGestionale" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt; &lt;P&gt;Può contente uno dei seguenti valori:&lt;BR&gt;Mercato BUSINESS – Clienti TOP&lt;BR&gt;Mercato BUSINESS – Clienti Multisito e Pubbliche Amministrazioni&lt;BR&gt;Mercato BUSINESS – Grandi Clienti&lt;BR&gt;Mercato BUSINESS – Clienti Territoriali&lt;BR&gt;Mercato PMI&lt;BR&gt;Mercato RESIDENZIALE &lt;/P&gt;&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="sistemaFatturazione" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt; &lt;P&gt;Sistema di su cui viene fatturato il punto.&lt;BR&gt;Può contenere uno dei seguenti valori:&lt;BR&gt;SAP&lt;BR&gt;BLU_MI&lt;BR&gt;BLU_BZ&lt;BR&gt;SOFTECO&lt;BR&gt;SICOMSEL&lt;BR&gt;SICOMGAS&lt;BR&gt;NETA &lt;/P&gt;&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="sistemaOrigine" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Sistema da cui ha origine la richiesta. &lt;BR&gt;Può contenere uno dei seguenti valori:&lt;BR&gt;NICE&lt;BR&gt;SOFTECO&lt;BR&gt;BLU_MI&lt;BR&gt;BLU_BZ&lt;BR&gt;SIEBEL&lt;BR&gt;PORTALINO_OPERATIONS&lt;BR&gt;PORTALINO_AREA_GESTIONALE &lt;BR&gt;&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="sistemaDestinazione" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Sistema su cui veicolare l'esito della richiesta. &lt;BR&gt;Può contenere uno dei seguenti valori:&lt;BR&gt;NICE&lt;BR&gt;SOFTECO&lt;BR&gt;BLU_MI&lt;BR&gt;BLU_BZ&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="codicePraticaMittente" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt; &lt;P&gt;Codice di riferimento del sistema di origine della richiesta. &lt;/P&gt;&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="codicePraticaThor" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Codice pratica del sistema THOR.&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="codicePraticaDistributore" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Codice di riferimento del distributore locale.&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+      <xs:complexType name="Esito">
+    <xs:annotation>
+      <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt;&#13;
+&lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt;&#13;
+&lt;/HEAD&gt;&#13;
+&lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Contiene le informazioni di esito della pratica&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="esito" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Esito della pratica&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="motivazione" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Eventuali note sull'esito&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="data" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Data inserimento esito&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="codice" nillable="false" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+      <xs:complexType name="StagionaleRicorrente">
+    <xs:annotation>
+      <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Fornitura stagionale ricorrente&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="stagRic" nillable="false" type="tns:BooleanType">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Indica se la&amp;nbsp;fornitura è stagionale ricorrente&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="dataInizio" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Data inizio ricorrenza&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="dataFine" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Data fine ricorrenza&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+      <xs:complexType name="Tensione">
+    <xs:annotation>
+      <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Tensione attuale presente a sistema&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="alimentazione" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Tensione alimentazione espressa in volt&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="fase" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt; &lt;P&gt;Tensione Fase: &lt;/P&gt; &lt;P&gt;AT&lt;BR&gt;MT&lt;BR&gt;BT Monofase&lt;BR&gt;BT Trifase &lt;/P&gt;&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="monoTrifase" nillable="false" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+      <xs:complexType name="DatiTecniciLetturaEE">
+    <xs:annotation>
+      <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Dati misuratore&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="lettura" nillable="false" type="tns:LetturaEE">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Informazioni sulla lettura&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="misuratoreElettronico" nillable="false" type="tns:BooleanType">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Misuratore elettronico&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="tipologiaMisuratore" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Tipologia Misuratore&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="costanteTrasferimentoAttiva" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Costante trasferimento attiva&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="costanteTrasferimentoReattiva" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Costante trasferimento reattiva&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="costanteTrasferimentoPotenza" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Costante trasferimento potenza&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="malfunzionamento" nillable="false" type="tns:BooleanType">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Malfunzionamento misuratore&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="acquisitoConsensoSostituzione" nillable="false" type="tns:BooleanType">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Acquisito consenso sostituzione misuratore&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="immediataSostituzione" nillable="false" type="tns:BooleanType">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt; &lt;P&gt;Immediata sostituzione misuratore &lt;/P&gt;&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+      <xs:complexType name="LetturaEE">
+    <xs:annotation>
+      <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt;&#13;
+&lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt;&#13;
+&lt;/HEAD&gt;&#13;
+&lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Contiene tutti i dati della lettura.&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="matricolaAttiva" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Matricola contatore attiva&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="matricolaReattiva" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Matricola contatore reattiva&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="matricolaPotenza" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt; &lt;P&gt;Matricola contatore potenza &lt;/P&gt;&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="attivaF1" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Lettura attiva F1&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="attivaF2" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Lettura attiva F2&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="attivaF3" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Lettura attiva F3&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="reattivaF1" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Lettura reattiva F1&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="reattivaF2" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Lettura reattiva F2&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="reattivaF3" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Lettura reattiva F3&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="potenzaF1" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Lettura potenza F1&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="potenzaF2" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Lettura potenza F2&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="potenzaF3" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Lettura potenza F3&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="data" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Data della lettura&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="tipologia" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Tipologia della lettura&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+      <xsd:complexType name="TSE_COMDATA_EE_REQ">
+		<xsd:sequence>
+			<xsd:element form="unqualified" minOccurs="0" name="tracking" type="bons0:Tracking">
+			</xsd:element>
+			<xsd:element form="unqualified" minOccurs="0" name="ammissibilita" type="bons0:Ammissibilita">
+			</xsd:element>
+			<xsd:element form="unqualified" minOccurs="0" name="esito" type="bons0:Esito">
+			</xsd:element>
+			<xsd:element form="unqualified" minOccurs="0" name="dataEsecuzioneLavoro" type="xsd:string">
+			</xsd:element>
+			<xsd:element form="unqualified" minOccurs="0" name="preventivo" type="bons0:DatiTecniciPreventivo">
+			</xsd:element>
+			<xsd:element form="unqualified" minOccurs="0" name="testoPredeterminabilita" type="xsd:string">
+			</xsd:element>
+			<xsd:element form="unqualified" minOccurs="0" name="codiceRintracciabilita" type="xsd:string">
+			</xsd:element>
+			<xsd:element form="unqualified" minOccurs="0" name="tipologiaIntervento" type="xsd:string">
+			</xsd:element>
+			<xsd:element form="unqualified" minOccurs="0" name="pod" type="xsd:string"/>
+			<xsd:element form="unqualified" minOccurs="0" name="rifQuesiti" type="xsd:string">
+			</xsd:element>
+			<xsd:element form="unqualified" minOccurs="0" name="datiTecniciRichiesti" type="xsd:string">
+			</xsd:element>
+			<xsd:element form="unqualified" minOccurs="0" name="note" type="xsd:string"/>
+
+
+
+			<xsd:element form="unqualified" minOccurs="0" name="potenza" type="bons0:Potenza">
+			</xsd:element>
+			<xsd:element form="unqualified" minOccurs="0" name="tensione" type="bons0:Tensione">
+			</xsd:element>
+
+			<xsd:element form="unqualified" minOccurs="0" name="stagionaleRicorrente" type="bons0:StagionaleRicorrente">
+			</xsd:element>
+			<xsd:element form="unqualified" minOccurs="0" name="misuratore" type="bons0:DatiTecniciLetturaEE">
+			</xsd:element>
+
+			<xsd:element form="unqualified" minOccurs="0" name="sostituzioneMisuratore" type="xsd:string">
+			</xsd:element>
+			<xsd:element form="unqualified" minOccurs="0" name="misuratoreRimosso" type="bons0:DatiTecniciLetturaEE">
+			</xsd:element>
+			<xsd:element form="unqualified" minOccurs="0" name="cliente" type="bons0:Cliente">
+			</xsd:element>
+			<xsd:element form="unqualified" minOccurs="0" name="datiCommerciali" type="bons0:DatiCommerciali">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+      <xs:complexType name="DatiCommerciali">
+    <xs:annotation>
+      <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Dati commerciali del cliente a sistema&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="usoEnergia" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt; &lt;P&gt;Codici uso energia &lt;/P&gt;&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="tipoContratto" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Tipologia contratto&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="settoreMerceologico" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Settore merceologico&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="trattamentoIva" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Trattamento iva&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="opzioneTariffaria" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Opzione tariffaria&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+      <xs:complexType name="Potenza">
+    <xs:annotation>
+      <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Potenza attaule&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="impegnata" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Potenza impegnata&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="disponibile" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Potenza disponibile&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="1" minOccurs="0" name="franchigia" nillable="false" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&lt;HTML&gt;&lt;HEAD&gt; &lt;STYLE type=text/css&gt; p{margin:0px;}&lt;/STYLE&gt; &lt;/HEAD&gt; &lt;BODY style="FONT-FAMILY: arial; FONT-SIZE: 10pt" bgColor=#f5f5f5&gt;Potenza franchigia&lt;/BODY&gt;&lt;/HTML&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+    </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="esitiRequestMsg">
+    <wsdl:part element="tns:esiti" name="esitiParameters"/>
+  </wsdl:message>
+    <wsdl:message name="esitiResponseMsg">
+    <wsdl:part element="tns:esitiResponse" name="esitiResult"/>
+  </wsdl:message>
+    <wsdl:portType name="IEsitiComdataEE">
+    <wsdl:operation name="esiti">
+      <wsdl:input message="tns:esitiRequestMsg" name="esitiRequest"/>
+      <wsdl:output message="tns:esitiResponseMsg" name="esitiResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+    <wsdl:binding name="WSComdataEsitiEE_IEsitiComdataEEHttpBinding" type="tns:IEsitiComdataEE">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="esiti">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="esitiRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="esitiResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+    <wsdl:service name="WSComdataEsitiEE_IEsitiComdataEEHttpService">
+    <wsdl:port binding="tns:WSComdataEsitiEE_IEsitiComdataEEHttpBinding" name="WSComdataEsitiEE_IEsitiComdataEEHttpPort">
+      <soap:address location="http://localhost:9080/THORProcessiWeb/sca/WSComdataEsitiEE"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

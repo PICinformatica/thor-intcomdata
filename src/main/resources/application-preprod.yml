@@ -1,0 +1,7 @@
+spring:
+  profiles:
+    include:
+      - deployed
+      - db-preprod
+      - logs-s3-preprod
+      - db-logger

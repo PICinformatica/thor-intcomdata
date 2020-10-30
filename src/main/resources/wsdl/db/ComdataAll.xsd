@@ -1,0 +1,3770 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xdb="http://xmlns.oracle.com/xdb" xsi:schemaLocation="http://xmlns.oracle.com/xdb http://xmlns.oracle.com/xdb/XDBSchema.xsd">
+ <xsd:element name="T_I_TSE_COMDATA_ALL" type="T_I_TSE_COMDATA_ALLType" xdb:SQLType="T_I_TSE_COMDATA_ALL" xdb:SQLSchema="THOR_IN"/>
+ <xsd:complexType name="T_I_TSE_COMDATA_ALLType" xdb:SQLType="T_I_TSE_COMDATA_ALL" xdb:SQLSchema="THOR_IN" xdb:maintainDOM="false">
+  <xsd:sequence>
+   <xsd:element name="CUTOFF" type="T_I_TSE_CUTOFFType" xdb:SQLName="CUTOFF" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_TSE_CUTOFF"/>
+   <xsd:element name="ESITIEE" type="T_I_TSE_EE_ALLType" xdb:SQLName="ESITIEE" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_TSE_EE_ALL"/>
+   <xsd:element name="ESITIGAS" type="T_I_TSE_GAS_ALLType" xdb:SQLName="ESITIGAS" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_TSE_GAS_ALL"/>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="T_I_TSE_CUTOFFType" xdb:SQLType="T_I_TSE_CUTOFF" xdb:SQLSchema="THOR_IN" xdb:maintainDOM="false">
+  <xsd:sequence>
+   <xsd:element name="LISTA_CUTOFF" type="T_I_CUTOFFType" maxOccurs="unbounded" minOccurs="0" xdb:SQLName="LISTA_CUTOFF" xdb:SQLCollType="T_I_CUTOFF_LIST" xdb:SQLType="T_I_CUTOFF" xdb:SQLSchema="THOR_IN" xdb:SQLCollSchema="THOR_IN"/>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="T_I_TSE_EE_ALLType" xdb:SQLType="T_I_TSE_EE_ALL" xdb:SQLSchema="THOR_IN" xdb:maintainDOM="false">
+  <xsd:sequence>
+   <xsd:element name="OUTBOUND_REQUEST" type="T_I_TSE_EE_OUT_REQType" xdb:SQLName="OUTBOUND_REQUEST" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_TSE_EE_OUT_REQ"/>
+   <xsd:element name="INBOUND_REQUEST" type="T_I_TSE_EE_INB_REQType" xdb:SQLName="INBOUND_REQUEST" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_TSE_EE_INB_REQ"/>
+   <xsd:element name="TRACKING_THOR_EE" type="T_I_TRACKING_THOR_EEType" xdb:SQLName="TRACKING_THOR_EE" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_TRACKING_THOR_EE"/>
+   <xsd:element name="ESITO" type="T_I_ESITO_TECNICOType" xdb:SQLName="ESITO" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_ESITO_TECNICO"/>
+   <xsd:element name="INVIO" type="T_I_INVIOType" xdb:SQLName="INVIO" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_INVIO"/>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="T_I_TSE_GAS_ALLType" xdb:SQLType="T_I_TSE_GAS_ALL" xdb:SQLSchema="THOR_IN" xdb:maintainDOM="false">
+  <xsd:sequence>
+   <xsd:element name="OUTBOUND_REQUEST" type="T_I_TSE_GAS_OUT_REQType" xdb:SQLName="OUTBOUND_REQUEST" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_TSE_GAS_OUT_REQ"/>
+   <xsd:element name="INBOUND_REQUEST" type="T_I_TSE_GAS_INB_REQType" xdb:SQLName="INBOUND_REQUEST" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_TSE_GAS_INB_REQ"/>
+   <xsd:element name="TRACKING_THOR_GAS" type="T_I_TRACKING_THOR_GASType" xdb:SQLName="TRACKING_THOR_GAS" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_TRACKING_THOR_GAS"/>
+   <xsd:element name="ESITO" type="T_I_ESITO_TECNICOType" xdb:SQLName="ESITO" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_ESITO_TECNICO"/>
+   <xsd:element name="INVIO" type="T_I_INVIOType" xdb:SQLName="INVIO" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_INVIO"/>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="T_I_CUTOFFType" xdb:SQLType="T_I_CUTOFF" xdb:SQLSchema="THOR_IN" xdb:maintainDOM="false">
+  <xsd:sequence>
+   <xsd:element name="ID" xdb:SQLName="ID" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DESTINATARIO" xdb:SQLName="DESTINATARIO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="SERVIZIO" xdb:SQLName="SERVIZIO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="UTILITY" xdb:SQLName="UTILITY" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="MAX_RICHIESTE" xdb:SQLName="MAX_RICHIESTE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="NUMERO_RICHIESTE" xdb:SQLName="NUMERO_RICHIESTE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="STATO" xdb:SQLName="STATO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="TIPO_DESTINATARIO" xdb:SQLName="TIPO_DESTINATARIO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="CREATED" xdb:SQLName="CREATED" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="AZIONI_UTENTE" type="T_I_AZIONE_UTENTEType" maxOccurs="unbounded" minOccurs="0" xdb:SQLName="AZIONI_UTENTE" xdb:SQLCollType="T_I_AZIONE_UTENTE_LIST" xdb:SQLType="T_I_AZIONE_UTENTE" xdb:SQLSchema="THOR_IN" xdb:SQLCollSchema="THOR_IN"/>
+   <xsd:element name="PRIMA_RIGA" xdb:SQLName="PRIMA_RIGA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="FORMATO" xdb:SQLName="FORMATO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="SEPARATORE" xdb:SQLName="SEPARATORE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="ID_TEMPLATE" xdb:SQLName="ID_TEMPLATE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="FLUSSO" xdb:SQLName="FLUSSO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="LINK_FILE" xdb:SQLName="LINK_FILE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="UTENTE" xdb:SQLName="UTENTE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="FLAG_SELECTED" xdb:SQLName="FLAG_SELECTED" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DATA_DECORRENZA" xdb:SQLName="DATA_DECORRENZA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="EMAIL" xdb:SQLName="EMAIL" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="RAGIONE_SOCIALE" xdb:SQLName="RAGIONE_SOCIALE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="PORTALE" xdb:SQLName="PORTALE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="CRITICO" xdb:SQLName="CRITICO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="T_I_TSE_EE_OUT_REQType" xdb:SQLType="T_I_TSE_EE_OUT_REQ" xdb:SQLSchema="THOR_IN" xdb:maintainDOM="false">
+  <xsd:sequence>
+   <xsd:element name="TRACKING" type="T_I_TRACKINGType" xdb:SQLName="TRACKING" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_TRACKING"/>
+   <xsd:element name="CLIENTE" type="T_I_CLIENTEType" xdb:SQLName="CLIENTE" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_CLIENTE"/>
+   <xsd:element name="CLIENTE_ESAZIONE" type="T_I_CLIENTEType" xdb:SQLName="CLIENTE_ESAZIONE" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_CLIENTE"/>
+   <xsd:element name="CLIENTE_USCENTE" type="T_I_CLIENTEType" xdb:SQLName="CLIENTE_USCENTE" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_CLIENTE"/>
+   <xsd:element name="CLIENTE_CONTATTO" type="T_I_CLIENTEType" xdb:SQLName="CLIENTE_CONTATTO" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_CLIENTE"/>
+   <xsd:element name="CLIENTE_REFERENTE" type="T_I_CLIENTEType" xdb:SQLName="CLIENTE_REFERENTE" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_CLIENTE"/>
+   <xsd:element name="CLIENTE_MODIFICATO" type="T_I_CLIENTEType" xdb:SQLName="CLIENTE_MODIFICATO" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_CLIENTE"/>
+   <xsd:element name="PRESENZA_CLIENTE" xdb:SQLName="PRESENZA_CLIENTE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="INDIRIZZO_ESAZIONE" type="T_I_INDIRIZZOType" xdb:SQLName="INDIRIZZO_ESAZIONE" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_INDIRIZZO"/>
+   <xsd:element name="INDIRIZZO_SEDE_LEGALE" type="T_I_INDIRIZZOType" xdb:SQLName="INDIRIZZO_SEDE_LEGALE" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_INDIRIZZO"/>
+   <xsd:element name="INDIRIZZO_FORNITURA" type="T_I_INDIRIZZOType" xdb:SQLName="INDIRIZZO_FORNITURA" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_INDIRIZZO"/>
+   <xsd:element name="INDIRIZZO_ESAZIONE_MODIFICATO" type="T_I_INDIRIZZOType" xdb:SQLName="INDIRIZZO_ESAZIONE_MODIFICATO" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_INDIRIZZO"/>
+   <xsd:element name="INDIRIZZO_LEGALE_MODIFICATO" type="T_I_INDIRIZZOType" xdb:SQLName="INDIRIZZO_LEGALE_MODIFICATO" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_INDIRIZZO"/>
+   <xsd:element name="CONFERMA" xdb:SQLName="CONFERMA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="POD" xdb:SQLName="POD" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="LETTURA_CLIENTE" type="T_I_LETTURA_EEType" xdb:SQLName="LETTURA_CLIENTE" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_LETTURA_EE"/>
+   <xsd:element name="NUOVO_TENTATIVO" xdb:SQLName="NUOVO_TENTATIVO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="APPUNTAMENTO" xdb:SQLName="APPUNTAMENTO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="LETTURA_RECLAMO" type="T_I_LETTURA_EEType" xdb:SQLName="LETTURA_RECLAMO" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_LETTURA_EE"/>
+   <xsd:element name="DT_RICEZIONE_RICHIESTA" xdb:SQLName="DT_RICEZIONE_RICHIESTA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DT_DA_NON_ESEGUIRE_PRIMA_DEL" xdb:SQLName="DT_DA_NON_ESEGUIRE_PRIMA_DEL" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DT_DECORRENZA" xdb:SQLName="DT_DECORRENZA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="NOTE" xdb:SQLName="NOTE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="STAGIONALE_RICORRENTE" type="T_I_STAGIONALE_RICORRENTEType" xdb:SQLName="STAGIONALE_RICORRENTE" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_STAGIONALE_RICORRENTE"/>
+   <xsd:element name="TIPO_CONNESSIONE" xdb:SQLName="TIPO_CONNESSIONE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="TIPOLOGIA_VOLTURA" xdb:SQLName="TIPOLOGIA_VOLTURA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="MANDATO_CONNESSIONE" xdb:SQLName="MANDATO_CONNESSIONE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="SOLLEVAMENTO_PERSONE" xdb:SQLName="SOLLEVAMENTO_PERSONE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="ATTIVAZIONE_FUORI_ORARIO" xdb:SQLName="ATTIVAZIONE_FUORI_ORARIO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DISATTIVAZIONE_FUORI_ORARIO" xdb:SQLName="DISATTIVAZIONE_FUORI_ORARIO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="SERVIZIO_CURVE_CARICO" xdb:SQLName="SERVIZIO_CURVE_CARICO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="CD_RECLAMO" xdb:SQLName="CD_RECLAMO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="CD_AREA_PRED" xdb:SQLName="CD_AREA_PRED" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="CD_VIA_PRED" xdb:SQLName="CD_VIA_PRED" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DISTANZA_SPOSTAMENTO" xdb:SQLName="DISTANZA_SPOSTAMENTO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="CD_PROTOCOLLO" xdb:SQLName="CD_PROTOCOLLO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="POD_DA_UNIFICARE" type="T_I_POD_DA_UNIFICAREType" maxOccurs="unbounded" minOccurs="0" xdb:SQLName="POD_DA_UNIFICARE" xdb:SQLCollType="T_I_POD_DA_UNIFICARE_LIST" xdb:SQLType="T_I_POD_DA_UNIFICARE" xdb:SQLSchema="THOR_IN" xdb:SQLCollSchema="THOR_IN"/>
+   <xsd:element name="DATI_TECNICI_RICHIESTI" xdb:SQLName="DATI_TECNICI_RICHIESTI" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="MODIFICA_OCCASIONALE" xdb:SQLName="MODIFICA_OCCASIONALE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="CATEGORIA_CLIENTE" xdb:SQLName="CATEGORIA_CLIENTE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="RESIDENZA" xdb:SQLName="RESIDENZA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="PARTICOLARI_MODALITA_FATT" xdb:SQLName="PARTICOLARI_MODALITA_FATT" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="SERVIZIO_CURVE_CARICO_GIORNAL" xdb:SQLName="SERVIZIO_CURVE_CARICO_GIORNAL" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="TIPO_RICHIESTA_SERVIZIO_CURVE" xdb:SQLName="TIPO_RICHIESTA_SERVIZIO_CURVE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="NR_POD_DA_REALIZZARE" xdb:SQLName="NR_POD_DA_REALIZZARE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DISAGIATO" xdb:SQLName="DISAGIATO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="PRESA" xdb:SQLName="PRESA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="TIPOLOGIA_MERCATO" xdb:SQLName="TIPOLOGIA_MERCATO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="PRIORITA" xdb:SQLName="PRIORITA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="CONTINUITA_CONSUMI" xdb:SQLName="CONTINUITA_CONSUMI" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DT_FINE_FORNITURA" xdb:SQLName="DT_FINE_FORNITURA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="TIPOLOGIA_UTENTE" xdb:SQLName="TIPOLOGIA_UTENTE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="TRADER" xdb:SQLName="TRADER" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="PRECHECK" xdb:SQLName="PRECHECK" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="CONSUMO_ANNUO" xdb:SQLName="CONSUMO_ANNUO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="PROFILO" xdb:SQLName="PROFILO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="CD_OFFERTA" xdb:SQLName="CD_OFFERTA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="MOROSITA_BLOCCANTE" xdb:SQLName="MOROSITA_BLOCCANTE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="ANNULLAMENTO" type="T_I_ANNULLAMENTOType" xdb:SQLName="ANNULLAMENTO" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_ANNULLAMENTO"/>
+   <xsd:element name="APPUNTAMENTO_CLIENTE" type="T_I_APPUNTAMENTOType" xdb:SQLName="APPUNTAMENTO_CLIENTE" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_APPUNTAMENTO"/>
+   <xsd:element name="DT_ACCETTAZIONE_PREVENTIVO" xdb:SQLName="DT_ACCETTAZIONE_PREVENTIVO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="ALLEGATI" type="T_I_ALLEGATOType" maxOccurs="unbounded" minOccurs="0" xdb:SQLName="ALLEGATI" xdb:SQLCollType="T_I_ALLEGATO_LIST" xdb:SQLType="T_I_ALLEGATO" xdb:SQLSchema="THOR_IN" xdb:SQLCollSchema="THOR_IN"/>
+   <xsd:element name="CONTESTAZIONE" type="T_I_CONTESTAZIONEType" xdb:SQLName="CONTESTAZIONE" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_CONTESTAZIONE"/>
+   <xsd:element name="INVIO_DL" xdb:SQLName="INVIO_DL" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="POTENZA_ATTUALE" type="T_I_POTENZAType" xdb:SQLName="POTENZA_ATTUALE" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_POTENZA"/>
+   <xsd:element name="POTENZA_RICHIESTA" type="T_I_POTENZAType" xdb:SQLName="POTENZA_RICHIESTA" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_POTENZA"/>
+   <xsd:element name="TENSIONE_ATTUALE" type="T_I_TENSIONEType" xdb:SQLName="TENSIONE_ATTUALE" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_TENSIONE"/>
+   <xsd:element name="TENSIONE_RICHIESTA" type="T_I_TENSIONEType" xdb:SQLName="TENSIONE_RICHIESTA" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_TENSIONE"/>
+   <xsd:element name="DATI_COMMERCIALI_ATTUALI" type="T_I_DATI_COMMERCIALIType" xdb:SQLName="DATI_COMMERCIALI_ATTUALI" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_DATI_COMMERCIALI"/>
+   <xsd:element name="DATI_COMMERCIALI_RICHIESTA" type="T_I_DATI_COMMERCIALIType" xdb:SQLName="DATI_COMMERCIALI_RICHIESTA" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_DATI_COMMERCIALI"/>
+   <xsd:element name="TRIBUTI" type="T_I_TRIBUTIType" xdb:SQLName="TRIBUTI" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_TRIBUTI"/>
+   <xsd:element name="AUTOCERTIFICAZIONI" type="T_I_AUTOCERTIFICAZIONIType" xdb:SQLName="AUTOCERTIFICAZIONI" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_AUTOCERTIFICAZIONI"/>
+   <xsd:element name="DISALIMENTABILITA" type="T_I_DISALIMENTABILITAType" xdb:SQLName="DISALIMENTABILITA" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_DISALIMENTABILITA"/>
+   <xsd:element name="RECESSO" type="T_I_RECESSOType" xdb:SQLName="RECESSO" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_RECESSO"/>
+   <xsd:element name="CONTRATTO_DISPACCIAMENTO" xdb:SQLName="CONTRATTO_DISPACCIAMENTO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="TIPOLOGIA_RISOLUZIONE" xdb:SQLName="TIPOLOGIA_RISOLUZIONE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DATA_FIRMA_CONTRATTO" xdb:SQLName="DATA_FIRMA_CONTRATTO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="ACQUISTO_CREDITO" xdb:SQLName="ACQUISTO_CREDITO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="TIMOE" xdb:SQLName="TIMOE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="REVOCA" xdb:SQLName="REVOCA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="CD_PRATICA_PRECHECK" xdb:SQLName="CD_PRATICA_PRECHECK" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DATA_VALIDITA_RESIDENZA" xdb:SQLName="DATA_VALIDITA_RESIDENZA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="CODICE_UFFICIO" xdb:SQLName="CODICE_UFFICIO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="PAGAMENTO_IVA" xdb:SQLName="PAGAMENTO_IVA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="CODICE_PRESTAZIONE" xdb:SQLName="CODICE_PRESTAZIONE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="TIPOLOGIA_RICHIESTA" xdb:SQLName="TIPOLOGIA_RICHIESTA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="IMPORTO_MOROSITA" xdb:SQLName="IMPORTO_MOROSITA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="SOGGETTO_DI_VENDITA" type="T_I_SOGGETTO_DI_VENDITAType" xdb:SQLName="SOGGETTO_DI_VENDITA" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_SOGGETTO_DI_VENDITA"/>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="T_I_TSE_EE_INB_REQType" xdb:SQLType="T_I_TSE_EE_INB_REQ" xdb:SQLSchema="THOR_IN" xdb:maintainDOM="false">
+  <xsd:sequence>
+   <xsd:element name="TRACKING" type="T_I_TRACKINGType" xdb:SQLName="TRACKING" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_TRACKING"/>
+   <xsd:element name="AREA_GEST_USCENTE" xdb:SQLName="AREA_GEST_USCENTE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="AMMISSIBILITA" type="T_I_AMMISSIBILITAType" xdb:SQLName="AMMISSIBILITA" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_AMMISSIBILITA"/>
+   <xsd:element name="PREVENTIVO" type="T_I_DATI_TECNICI_PREVENTIVOType" xdb:SQLName="PREVENTIVO" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_DATI_TECNICI_PREVENTIVO"/>
+   <xsd:element name="TIPO_INTERVENTO" xdb:SQLName="TIPO_INTERVENTO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="ESITO" type="T_I_ESITOType" xdb:SQLName="ESITO" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_ESITO"/>
+   <xsd:element name="POD" xdb:SQLName="POD" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DT_ESEC_LAVORO" xdb:SQLName="DT_ESEC_LAVORO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DT_INVIO_DL" xdb:SQLName="DT_INVIO_DL" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DT_DECORRENZA" xdb:SQLName="DT_DECORRENZA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="ESITO_VERIFICA" xdb:SQLName="ESITO_VERIFICA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="INDIRIZZO_FORNITURA" type="T_I_INDIRIZZOType" xdb:SQLName="INDIRIZZO_FORNITURA" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_INDIRIZZO"/>
+   <xsd:element name="INDIRIZZO_ESAZIONE" type="T_I_INDIRIZZOType" xdb:SQLName="INDIRIZZO_ESAZIONE" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_INDIRIZZO"/>
+   <xsd:element name="INDIRIZZO_SEDE_LEGALE" type="T_I_INDIRIZZOType" xdb:SQLName="INDIRIZZO_SEDE_LEGALE" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_INDIRIZZO"/>
+   <xsd:element name="APPUNTAMENTO_DL" type="T_I_APPUNTAMENTOType" xdb:SQLName="APPUNTAMENTO_DL" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_APPUNTAMENTO"/>
+   <xsd:element name="ANNULLAMENTO" type="T_I_ANNULLAMENTOType" xdb:SQLName="ANNULLAMENTO" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_ANNULLAMENTO"/>
+   <xsd:element name="ALLEGATI" type="T_I_ALLEGATOType" maxOccurs="unbounded" minOccurs="0" xdb:SQLName="ALLEGATI" xdb:SQLCollType="T_I_ALLEGATO_LIST" xdb:SQLType="T_I_ALLEGATO" xdb:SQLSchema="THOR_IN" xdb:SQLCollSchema="THOR_IN"/>
+   <xsd:element name="POTENZA_ATTUALE" type="T_I_POTENZAType" xdb:SQLName="POTENZA_ATTUALE" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_POTENZA"/>
+   <xsd:element name="POTENZA_RICHIESTA" type="T_I_POTENZAType" xdb:SQLName="POTENZA_RICHIESTA" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_POTENZA"/>
+   <xsd:element name="TENSIONE_ATTUALE" type="T_I_TENSIONEType" xdb:SQLName="TENSIONE_ATTUALE" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_TENSIONE"/>
+   <xsd:element name="TENSIONE_RICHIESTA" type="T_I_TENSIONEType" xdb:SQLName="TENSIONE_RICHIESTA" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_TENSIONE"/>
+   <xsd:element name="CLIENTE" type="T_I_CLIENTEType" xdb:SQLName="CLIENTE" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_CLIENTE"/>
+   <xsd:element name="CLIENTE_REFERENTE" type="T_I_CLIENTEType" xdb:SQLName="CLIENTE_REFERENTE" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_CLIENTE"/>
+   <xsd:element name="STAGIONALE_RICORRENTE" type="T_I_STAGIONALE_RICORRENTEType" xdb:SQLName="STAGIONALE_RICORRENTE" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_STAGIONALE_RICORRENTE"/>
+   <xsd:element name="CD_AUTHORITY_DL" xdb:SQLName="CD_AUTHORITY_DL" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="CANALE_COMUNICAZIONE" xdb:SQLName="CANALE_COMUNICAZIONE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="APPUNTAMENTO_NECESSARIO" xdb:SQLName="APPUNTAMENTO_NECESSARIO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="LISTA_POD" type="T_I_POD_DA_UNIFICAREType" maxOccurs="unbounded" minOccurs="0" xdb:SQLName="LISTA_POD" xdb:SQLCollType="T_I_POD_DA_UNIFICARE_LIST" xdb:SQLType="T_I_POD_DA_UNIFICARE" xdb:SQLSchema="THOR_IN" xdb:SQLCollSchema="THOR_IN"/>
+   <xsd:element name="MISURATORE" type="T_I_DATI_TECNICI_LETTURA_EEType" xdb:SQLName="MISURATORE" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_DATI_TECNICI_LETTURA_EE"/>
+   <xsd:element name="SOSTITUZIONE_MISURATORE" xdb:SQLName="SOSTITUZIONE_MISURATORE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="MISURATORE_RIMOSSO" type="T_I_DATI_TECNICI_LETTURA_EEType" xdb:SQLName="MISURATORE_RIMOSSO" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_DATI_TECNICI_LETTURA_EE"/>
+   <xsd:element name="ADDEBITO_ONERI" xdb:SQLName="ADDEBITO_ONERI" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="RIFERIMENTO_RESOCONTO" xdb:SQLName="RIFERIMENTO_RESOCONTO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="CD_RINTRACCIABILITA" xdb:SQLName="CD_RINTRACCIABILITA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="ACCERT_VAL_NON_CORRETTI" xdb:SQLName="ACCERT_VAL_NON_CORRETTI" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="RIFERIMENTO_QUESITI" xdb:SQLName="RIFERIMENTO_QUESITI" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="CONTRIBUTO_RIDOTTO" xdb:SQLName="CONTRIBUTO_RIDOTTO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DT_PREV_RIPRIST_LAVORI" xdb:SQLName="DT_PREV_RIPRIST_LAVORI" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DATI_TECNICI_RICHIESTI" xdb:SQLName="DATI_TECNICI_RICHIESTI" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="NOTE" xdb:SQLName="NOTE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DATI_COMMERCIALI" type="T_I_DATI_COMMERCIALIType" xdb:SQLName="DATI_COMMERCIALI" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_DATI_COMMERCIALI"/>
+   <xsd:element name="ACCISE" xdb:SQLName="ACCISE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="ADDIZIONALE_COMUNALE" xdb:SQLName="ADDIZIONALE_COMUNALE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="ADDIZIONALE_PROVINCIALE" xdb:SQLName="ADDIZIONALE_PROVINCIALE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="MOTIVO_ANNULLAMENTO" xdb:SQLName="MOTIVO_ANNULLAMENTO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="PARTICOLATI_MODALITA_FATT" xdb:SQLName="PARTICOLATI_MODALITA_FATT" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="NUOVA_TIPOLOGIA_INTERVENTO" xdb:SQLName="NUOVA_TIPOLOGIA_INTERVENTO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="POD_SOSPESO_CMOR" xdb:SQLName="POD_SOSPESO_CMOR" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="PRESA" xdb:SQLName="PRESA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="PRESTAZIONI_APERTE" xdb:SQLName="PRESTAZIONI_APERTE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="REVOCA_SOSPENSIONE" xdb:SQLName="REVOCA_SOSPENSIONE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="RICHIESTA_SOSP_MOROSITA" xdb:SQLName="RICHIESTA_SOSP_MOROSITA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="RIDUZIONE_POTENZA" xdb:SQLName="RIDUZIONE_POTENZA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="PREDETERMINABILITA" type="T_I_PREDETERMINABILITAType" xdb:SQLName="PREDETERMINABILITA" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_PREDETERMINABILITA"/>
+   <xsd:element name="TIPOLOGIA_MERCATO" xdb:SQLName="TIPOLOGIA_MERCATO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="VOLT_SUB_ATT_CONTESTUALI" xdb:SQLName="VOLT_SUB_ATT_CONTESTUALI" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="UTENTE" xdb:SQLName="UTENTE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="EVENTO" xdb:SQLName="EVENTO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="TIMOE" type="T_I_TIMOEType" xdb:SQLName="TIMOE" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_TIMOE"/>
+   <xsd:element name="TRADER" type="T_I_TRADERType" xdb:SQLName="TRADER" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_TRADER"/>
+   <xsd:element name="CRPP" type="T_I_CRPPType" xdb:SQLName="CRPP" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_CRPP"/>
+   <xsd:element name="ID_RDA" xdb:SQLName="ID_RDA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="ID_RDL" xdb:SQLName="ID_RDL" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="CAUSALE_KO" xdb:SQLName="CAUSALE_KO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="PMA_POD" xdb:SQLName="PMA_POD" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="T_I_TRACKING_THOR_EEType" xdb:SQLType="T_I_TRACKING_THOR_EE" xdb:SQLSchema="THOR_IN" xdb:maintainDOM="false">
+  <xsd:sequence>
+   <xsd:element name="CD_PRATICA_THOR" xdb:SQLName="CD_PRATICA_THOR" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="POD" xdb:SQLName="POD" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="SERVIZIO_THOR" type="T_I_DETTAGLIOType" xdb:SQLName="SERVIZIO_THOR" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_DETTAGLIO"/>
+   <xsd:element name="SERVIZIO_DL" type="T_I_DETTAGLIOType" xdb:SQLName="SERVIZIO_DL" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_DETTAGLIO"/>
+   <xsd:element name="STATO" xdb:SQLName="STATO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DISTRIBUTORE" type="T_I_DISTRIBUTOREType" xdb:SQLName="DISTRIBUTORE" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_DISTRIBUTORE"/>
+   <xsd:element name="SOCIETA_VENDITA" type="T_I_DETTAGLIOType" xdb:SQLName="SOCIETA_VENDITA" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_DETTAGLIO"/>
+   <xsd:element name="AREA_GESTIONALE" type="T_I_DETTAGLIOType" xdb:SQLName="AREA_GESTIONALE" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_DETTAGLIO"/>
+   <xsd:element name="AREA_GESTIONALE_USCENTE" type="T_I_DETTAGLIOType" xdb:SQLName="AREA_GESTIONALE_USCENTE" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_DETTAGLIO"/>
+   <xsd:element name="SISTEMA_FATTURAZIONE" type="T_I_DETTAGLIOType" xdb:SQLName="SISTEMA_FATTURAZIONE" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_DETTAGLIO"/>
+   <xsd:element name="SISTEMA_ORIGINE" type="T_I_DETTAGLIOType" xdb:SQLName="SISTEMA_ORIGINE" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_DETTAGLIO"/>
+   <xsd:element name="SISTEMA_DESTINAZIONE" type="T_I_DETTAGLIOType" xdb:SQLName="SISTEMA_DESTINAZIONE" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_DETTAGLIO"/>
+   <xsd:element name="CD_PRATICA_MITTENTE" xdb:SQLName="CD_PRATICA_MITTENTE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="CD_PRATICA_DL" xdb:SQLName="CD_PRATICA_DL" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="CD_PRATICA_TRADER" xdb:SQLName="CD_PRATICA_TRADER" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="FLUSSO" type="T_I_INFO_FLUSSOType" maxOccurs="unbounded" minOccurs="0" xdb:SQLName="FLUSSO" xdb:SQLCollType="T_I_INFO_FLUSSO_LIST" xdb:SQLType="T_I_INFO_FLUSSO" xdb:SQLSchema="THOR_IN" xdb:SQLCollSchema="THOR_IN"/>
+   <xsd:element name="PARTITA_IVA_EDISON" xdb:SQLName="PARTITA_IVA_EDISON" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="T_I_ESITO_TECNICOType" xdb:SQLType="T_I_ESITO_TECNICO" xdb:SQLSchema="THOR_IN" xdb:maintainDOM="false">
+  <xsd:sequence>
+   <xsd:element name="ESITO" xdb:SQLName="ESITO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="CAUSALE" xdb:SQLName="CAUSALE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="MOTIVAZIONE" xdb:SQLName="MOTIVAZIONE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DT_ESITO" xdb:SQLName="DT_ESITO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="T_I_INVIOType" xdb:SQLType="T_I_INVIO" xdb:SQLSchema="THOR_IN" xdb:maintainDOM="false">
+  <xsd:sequence>
+   <xsd:element name="ID_INVIO" xdb:SQLName="ID_INVIO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="ESITO" xdb:SQLName="ESITO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="CAUSALE" xdb:SQLName="CAUSALE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="MOTIVAZIONE" xdb:SQLName="MOTIVAZIONE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DT_INVIO" xdb:SQLName="DT_INVIO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="T_I_TSE_GAS_OUT_REQType" xdb:SQLType="T_I_TSE_GAS_OUT_REQ" xdb:SQLSchema="THOR_IN" xdb:maintainDOM="false">
+  <xsd:sequence>
+   <xsd:element name="TRACKING" type="T_I_TRACKINGType" xdb:SQLName="TRACKING" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_TRACKING"/>
+   <xsd:element name="CLIENTE" type="T_I_CLIENTEType" xdb:SQLName="CLIENTE" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_CLIENTE"/>
+   <xsd:element name="CLIENTE_ESAZIONE" type="T_I_CLIENTEType" xdb:SQLName="CLIENTE_ESAZIONE" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_CLIENTE"/>
+   <xsd:element name="CLIENTE_USCENTE" type="T_I_CLIENTEType" xdb:SQLName="CLIENTE_USCENTE" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_CLIENTE"/>
+   <xsd:element name="CLIENTE_BENEFICIARIO" type="T_I_CLIENTEType" xdb:SQLName="CLIENTE_BENEFICIARIO" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_CLIENTE"/>
+   <xsd:element name="INDIRIZZO_FORNITURA" type="T_I_INDIRIZZOType" xdb:SQLName="INDIRIZZO_FORNITURA" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_INDIRIZZO"/>
+   <xsd:element name="INDIRIZZO_CLIENTE" type="T_I_INDIRIZZOType" xdb:SQLName="INDIRIZZO_CLIENTE" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_INDIRIZZO"/>
+   <xsd:element name="INDIRIZZO_ESAZIONE" type="T_I_INDIRIZZOType" xdb:SQLName="INDIRIZZO_ESAZIONE" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_INDIRIZZO"/>
+   <xsd:element name="INDIRIZZO_IMMOBILE" type="T_I_INDIRIZZOType" xdb:SQLName="INDIRIZZO_IMMOBILE" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_INDIRIZZO"/>
+   <xsd:element name="INDIRIZZO_BENEFICIARIO" type="T_I_INDIRIZZOType" xdb:SQLName="INDIRIZZO_BENEFICIARIO" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_INDIRIZZO"/>
+   <xsd:element name="INDIRIZZO_SEDE_LEGALE" type="T_I_INDIRIZZOType" xdb:SQLName="INDIRIZZO_SEDE_LEGALE" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_INDIRIZZO"/>
+   <xsd:element name="PDR_CODICE" xdb:SQLName="PDR_CODICE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="PDR_TIPO" xdb:SQLName="PDR_TIPO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="PDR_CD_PROFILO_PRELIEVO" xdb:SQLName="PDR_CD_PROFILO_PRELIEVO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="PDR_CD_REMI" xdb:SQLName="PDR_CD_REMI" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="RILEVANZA_CONTINUITA_CLIENTE" xdb:SQLName="RILEVANZA_CONTINUITA_CLIENTE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="TIPOLOGIA_VOLTURA" xdb:SQLName="TIPOLOGIA_VOLTURA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="FLAG_DATI_NON_CONFORMI" xdb:SQLName="FLAG_DATI_NON_CONFORMI" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DATI_FATTURAZIONE" xdb:SQLName="DATI_FATTURAZIONE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="PRIORITA" xdb:SQLName="PRIORITA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="NUOVO_TENTATIVO" xdb:SQLName="NUOVO_TENTATIVO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="APPUNTAMENTO" xdb:SQLName="APPUNTAMENTO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="CD_PROTOCOLLO" xdb:SQLName="CD_PROTOCOLLO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="CD_RECLAMO" xdb:SQLName="CD_RECLAMO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="NOTE" xdb:SQLName="NOTE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="QUALIFICA_CLIENTE_FINALE" xdb:SQLName="QUALIFICA_CLIENTE_FINALE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="RESPONSABILE_IMPIANTO" xdb:SQLName="RESPONSABILE_IMPIANTO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="RESPONSABILE_IMPIANTO_TELEF" xdb:SQLName="RESPONSABILE_IMPIANTO_TELEF" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="NOMINATIVO_UTILIZZATORE_FINAL" xdb:SQLName="NOMINATIVO_UTILIZZATORE_FINAL" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="PRECHECK" xdb:SQLName="PRECHECK" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DIRETTO" xdb:SQLName="DIRETTO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DT_AGGIORNAMENTO" xdb:SQLName="DT_AGGIORNAMENTO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="PERIODO_COMPETENZA" xdb:SQLName="PERIODO_COMPETENZA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="CD_CESSAZIONE" xdb:SQLName="CD_CESSAZIONE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="CAPACITA_CONTRATTUALE" xdb:SQLName="CAPACITA_CONTRATTUALE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="FLAG_INVIO_DL" xdb:SQLName="FLAG_INVIO_DL" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="CONFERMA" xdb:SQLName="CONFERMA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DT_RICEZIONE_RICHIESTA" xdb:SQLName="DT_RICEZIONE_RICHIESTA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DT_DECORRENZA" xdb:SQLName="DT_DECORRENZA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DT_ACCETTAZIONE_PREVENTIVO" xdb:SQLName="DT_ACCETTAZIONE_PREVENTIVO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DATI_VENDITA" type="T_I_DATI_VENDITAType" xdb:SQLName="DATI_VENDITA" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_DATI_VENDITA"/>
+   <xsd:element name="DATI_TECNICI" type="T_I_DATI_TECNICIType" xdb:SQLName="DATI_TECNICI" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_DATI_TECNICI"/>
+   <xsd:element name="MISURATORE" type="T_I_LETTURA_GASType" xdb:SQLName="MISURATORE" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_LETTURA_GAS"/>
+   <xsd:element name="CONVERTITORE" type="T_I_LETTURA_GASType" xdb:SQLName="CONVERTITORE" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_LETTURA_GAS"/>
+   <xsd:element name="MISURATORE_CLIENTE" type="T_I_LETTURA_GASType" xdb:SQLName="MISURATORE_CLIENTE" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_LETTURA_GAS"/>
+   <xsd:element name="ALLEGATO" type="T_I_ALLEGATOType" maxOccurs="unbounded" minOccurs="0" xdb:SQLName="ALLEGATO" xdb:SQLCollType="T_I_ALLEGATO_LIST" xdb:SQLType="T_I_ALLEGATO" xdb:SQLSchema="THOR_IN" xdb:SQLCollSchema="THOR_IN"/>
+   <xsd:element name="APPUNTAMENTO_CLIENTE" type="T_I_APPUNTAMENTOType" xdb:SQLName="APPUNTAMENTO_CLIENTE" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_APPUNTAMENTO"/>
+   <xsd:element name="ANNULLAMENTO" type="T_I_ANNULLAMENTOType" xdb:SQLName="ANNULLAMENTO" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_ANNULLAMENTO"/>
+   <xsd:element name="RECESSO" type="T_I_RECESSOType" xdb:SQLName="RECESSO" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_RECESSO"/>
+   <xsd:element name="CONTESTAZIONE" type="T_I_CONTESTAZIONEType" xdb:SQLName="CONTESTAZIONE" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_CONTESTAZIONE"/>
+   <xsd:element name="RESIDENZA" xdb:SQLName="RESIDENZA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="ACCESSO_FUI" xdb:SQLName="ACCESSO_FUI" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="TIPO_FORNITURA" xdb:SQLName="TIPO_FORNITURA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="SETTORE_MERCEOLOGICO" xdb:SQLName="SETTORE_MERCEOLOGICO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="PT_IVA_CC" xdb:SQLName="PT_IVA_CC" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="CLIENTE_REFERENTE" type="T_I_CLIENTEType" xdb:SQLName="CLIENTE_REFERENTE" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_CLIENTE"/>
+   <xsd:element name="AGEVOLAZIONI_IVA" xdb:SQLName="AGEVOLAZIONI_IVA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="AGEVOLAZIONI_ALTRO" xdb:SQLName="AGEVOLAZIONI_ALTRO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="ALTRE_IMP" xdb:SQLName="ALTRE_IMP" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="ACCESSO_FUI_RICHIEDENTE" xdb:SQLName="ACCESSO_FUI_RICHIEDENTE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="CD_PRATICA_PRECHECK" xdb:SQLName="CD_PRATICA_PRECHECK" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="MOTIVAZIONE_MODIFICA" xdb:SQLName="MOTIVAZIONE_MODIFICA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="TIPOLOGIA_RICHIESTA" xdb:SQLName="TIPOLOGIA_RICHIESTA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="REFERENTE" xdb:SQLName="REFERENTE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DATA_VALIDITA_RESIDENZA" xdb:SQLName="DATA_VALIDITA_RESIDENZA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="CODICE_UFFICIO" xdb:SQLName="CODICE_UFFICIO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="PAGAMENTO_IVA" xdb:SQLName="PAGAMENTO_IVA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="CODICE_PRESTAZIONE" xdb:SQLName="CODICE_PRESTAZIONE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DISALIMENTABILITA" xdb:SQLName="DISALIMENTABILITA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="TRATTAMENTO_SETTLEMENT" xdb:SQLName="TRATTAMENTO_SETTLEMENT" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="BONUS" type="T_I_BONUSType" xdb:SQLName="BONUS" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_BONUS"/>
+   <xsd:element name="IMPORTO_MOROSITA" xdb:SQLName="IMPORTO_MOROSITA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="INSTALLAZIONE_CORRETTORE" xdb:SQLName="INSTALLAZIONE_CORRETTORE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="TRIBUTI" type="T_I_TRIBUTI_GASType" xdb:SQLName="TRIBUTI" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_TRIBUTI_GAS"/>
+   <xsd:element name="CODICE_CONTRATTO" xdb:SQLName="CODICE_CONTRATTO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="REVOCA" xdb:SQLName="REVOCA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="ACQUISTO_CREDITO" xdb:SQLName="ACQUISTO_CREDITO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="TIPOLOGIA_RISOLUZIONE" xdb:SQLName="TIPOLOGIA_RISOLUZIONE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="P_IVA_UTENTE_BILANCIAMENTO" xdb:SQLName="P_IVA_UTENTE_BILANCIAMENTO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="SOGGETTO_DI_VENDITA" type="T_I_SOGGETTO_DI_VENDITAType" xdb:SQLName="SOGGETTO_DI_VENDITA" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_SOGGETTO_DI_VENDITA"/>
+   <xsd:element name="CODICE_GESTORE_PROCESSO" xdb:SQLName="CODICE_GESTORE_PROCESSO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="TIPO_NOTIFICA" xdb:SQLName="TIPO_NOTIFICA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="T_I_TSE_GAS_INB_REQType" xdb:SQLType="T_I_TSE_GAS_INB_REQ" xdb:SQLSchema="THOR_IN" xdb:maintainDOM="false">
+  <xsd:sequence>
+   <xsd:element name="TRACKING" type="T_I_TRACKINGType" xdb:SQLName="TRACKING" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_TRACKING"/>
+   <xsd:element name="AMMISSIBILITA" type="T_I_AMMISSIBILITAType" xdb:SQLName="AMMISSIBILITA" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_AMMISSIBILITA"/>
+   <xsd:element name="APPUNTAMENTO" type="T_I_APPUNTAMENTOType" xdb:SQLName="APPUNTAMENTO" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_APPUNTAMENTO"/>
+   <xsd:element name="URL_ACQUISIZIONE_APPUNTAMENTO" xdb:SQLName="URL_ACQUISIZIONE_APPUNTAMENTO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="NUOVA_TIPOLOGIA_INTERVENTO" xdb:SQLName="NUOVA_TIPOLOGIA_INTERVENTO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="PREVENTIVO" type="T_I_DATI_TECNICI_PREVENTIVOType" xdb:SQLName="PREVENTIVO" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_DATI_TECNICI_PREVENTIVO"/>
+   <xsd:element name="RIFERIMENTO_PREVENTIVO" xdb:SQLName="RIFERIMENTO_PREVENTIVO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="ESITO" type="T_I_ESITOType" xdb:SQLName="ESITO" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_ESITO"/>
+   <xsd:element name="NOTE" xdb:SQLName="NOTE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DATA_INVIO_DL" xdb:SQLName="DATA_INVIO_DL" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="CLIENTE" type="T_I_CLIENTEType" xdb:SQLName="CLIENTE" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_CLIENTE"/>
+   <xsd:element name="CLIENTE_ESAZIONE" type="T_I_CLIENTEType" xdb:SQLName="CLIENTE_ESAZIONE" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_CLIENTE"/>
+   <xsd:element name="CLIENTE_BENEFICIARIO" type="T_I_CLIENTEType" xdb:SQLName="CLIENTE_BENEFICIARIO" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_CLIENTE"/>
+   <xsd:element name="INDIRIZZO_FORNITURA" type="T_I_INDIRIZZOType" xdb:SQLName="INDIRIZZO_FORNITURA" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_INDIRIZZO"/>
+   <xsd:element name="INDIRIZZO_CLIENTE" type="T_I_INDIRIZZOType" xdb:SQLName="INDIRIZZO_CLIENTE" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_INDIRIZZO"/>
+   <xsd:element name="INDIRIZZO_ESAZIONE" type="T_I_INDIRIZZOType" xdb:SQLName="INDIRIZZO_ESAZIONE" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_INDIRIZZO"/>
+   <xsd:element name="INDIRIZZO_BENEFICIARIO" type="T_I_INDIRIZZOType" xdb:SQLName="INDIRIZZO_BENEFICIARIO" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_INDIRIZZO"/>
+   <xsd:element name="STATO_CONTATORE" xdb:SQLName="STATO_CONTATORE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="INSTALLAZIONE_CONTATORE" xdb:SQLName="INSTALLAZIONE_CONTATORE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="INSTALLAZIONE_CORRETTORE" xdb:SQLName="INSTALLAZIONE_CORRETTORE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="RIMOZIONE_CONTATORE" xdb:SQLName="RIMOZIONE_CONTATORE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="RIMOZIONE_CORRETTORE" xdb:SQLName="RIMOZIONE_CORRETTORE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="CONTATORE" type="T_I_LETTURA_GASType" xdb:SQLName="CONTATORE" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_LETTURA_GAS"/>
+   <xsd:element name="CONTATORE_RIMOSSO" type="T_I_LETTURA_GASType" xdb:SQLName="CONTATORE_RIMOSSO" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_LETTURA_GAS"/>
+   <xsd:element name="CORRETTORE" type="T_I_LETTURA_GASType" xdb:SQLName="CORRETTORE" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_LETTURA_GAS"/>
+   <xsd:element name="CORRETTORE_RIMOSSO" type="T_I_LETTURA_GASType" xdb:SQLName="CORRETTORE_RIMOSSO" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_LETTURA_GAS"/>
+   <xsd:element name="ALLEGATO" type="T_I_ALLEGATOType" maxOccurs="unbounded" minOccurs="0" xdb:SQLName="ALLEGATO" xdb:SQLCollType="T_I_ALLEGATO_LIST" xdb:SQLType="T_I_ALLEGATO" xdb:SQLSchema="THOR_IN" xdb:SQLCollSchema="THOR_IN"/>
+   <xsd:element name="PREDETERMINABILITA" type="T_I_PREDETERMINABILITAType" xdb:SQLName="PREDETERMINABILITA" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_PREDETERMINABILITA"/>
+   <xsd:element name="ADDEBITO_ONERI" xdb:SQLName="ADDEBITO_ONERI" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="APPUNTAMENTO_NECESSARIO" xdb:SQLName="APPUNTAMENTO_NECESSARIO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="PDR_CODICE" xdb:SQLName="PDR_CODICE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="PDR_TIPO" xdb:SQLName="PDR_TIPO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="PDR_CODICE_PROFILO_PRELIEVO" xdb:SQLName="PDR_CODICE_PROFILO_PRELIEVO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="PDR_CODICE_REMI" xdb:SQLName="PDR_CODICE_REMI" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DATI_TECNICI" type="T_I_DATI_TECNICIType" xdb:SQLName="DATI_TECNICI" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_DATI_TECNICI"/>
+   <xsd:element name="RILEVANZA_CONTINUITA_CLIENTE" xdb:SQLName="RILEVANZA_CONTINUITA_CLIENTE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="PDR_STATO_TECNICO" xdb:SQLName="PDR_STATO_TECNICO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="PRESSIONE_MISURA" xdb:SQLName="PRESSIONE_MISURA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="PDR_PORTATA_MASSIMA" xdb:SQLName="PDR_PORTATA_MASSIMA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="PDR_PORTATA_MINIMA" xdb:SQLName="PDR_PORTATA_MINIMA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="CODICE_AUTHORITY_DL" xdb:SQLName="CODICE_AUTHORITY_DL" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="CANALE_COMUNICAZIONE" xdb:SQLName="CANALE_COMUNICAZIONE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="RIFERIMENTO_COMUNICAZIONE_SOSP" xdb:SQLName="RIFERIMENTO_COMUNICAZIONE_SOSP" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="ANNULLAMNETO" type="T_I_ANNULLAMENTOType" xdb:SQLName="ANNULLAMNETO" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_ANNULLAMENTO"/>
+   <xsd:element name="ATTI_AUTORIZZATIVI" xdb:SQLName="ATTI_AUTORIZZATIVI" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="SERVIZIO_ENERGETICO" xdb:SQLName="SERVIZIO_ENERGETICO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DATI_VERIFICA" type="T_I_VERIFICAType" xdb:SQLName="DATI_VERIFICA" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_VERIFICA"/>
+   <xsd:element name="SECONDO_APPUNTAMENTO" type="T_I_SECONDO_APPUNTAMENTOType" xdb:SQLName="SECONDO_APPUNTAMENTO" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_SECONDO_APPUNTAMENTO"/>
+   <xsd:element name="ANNULLAMNETO_APPUNTAMENTO" type="T_I_ANNULLAMENTO_APPUNTAMENTOType" xdb:SQLName="ANNULLAMNETO_APPUNTAMENTO" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_ANNULLAMENTO_APPUNTAMENTO"/>
+   <xsd:element name="DOCUMENTAZIONE" type="T_I_DOCUMENTAZIONEType" xdb:SQLName="DOCUMENTAZIONE" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_DOCUMENTAZIONE"/>
+   <xsd:element name="DATA_TENTATIVO" xdb:SQLName="DATA_TENTATIVO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DATA_MAX_CONF" xdb:SQLName="DATA_MAX_CONF" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="RIFERIMENTO_RISP_QUESITI" xdb:SQLName="RIFERIMENTO_RISP_QUESITI" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="IVA" xdb:SQLName="IVA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="IMPOSTE" xdb:SQLName="IMPOSTE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DATI_FATTURAZIONE" xdb:SQLName="DATI_FATTURAZIONE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="RIF_QUESITI" xdb:SQLName="RIF_QUESITI" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DATA_DECORRENZA" xdb:SQLName="DATA_DECORRENZA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DATA_ESEC_LAVORO" xdb:SQLName="DATA_ESEC_LAVORO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="UTENTE" xdb:SQLName="UTENTE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="EVENTO" xdb:SQLName="EVENTO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="FATTIBILITA_TECNICA" xdb:SQLName="FATTIBILITA_TECNICA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="NUMERO_TENTATIVI" xdb:SQLName="NUMERO_TENTATIVI" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="BONUS" type="T_I_BONUSType" xdb:SQLName="BONUS" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_BONUS"/>
+   <xsd:element name="DATA_SCAD_DS_CATEGORIA_USO" xdb:SQLName="DATA_SCAD_DS_CATEGORIA_USO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="CONTATORE_SWITCH" type="T_I_LETTURA_GASType" xdb:SQLName="CONTATORE_SWITCH" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_LETTURA_GAS"/>
+   <xsd:element name="CORRETTORE_SWITCH" type="T_I_LETTURA_GASType" xdb:SQLName="CORRETTORE_SWITCH" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_LETTURA_GAS"/>
+   <xsd:element name="MOROSITA_DATE_SOSPENSIONE" xdb:SQLName="MOROSITA_DATE_SOSPENSIONE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="MOROSITA_PUNTO_CHIUSO" xdb:SQLName="MOROSITA_PUNTO_CHIUSO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DATE_CAMBIO_TRADER" xdb:SQLName="DATE_CAMBIO_TRADER" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="TIPOLOGIA_MERCATO" xdb:SQLName="TIPOLOGIA_MERCATO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="RESIDENZA" xdb:SQLName="RESIDENZA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="ACCESSO_FUI" xdb:SQLName="ACCESSO_FUI" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="TIPO_FORNITURA" xdb:SQLName="TIPO_FORNITURA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="TRADER" type="T_I_TRADERType" xdb:SQLName="TRADER" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_TRADER"/>
+   <xsd:element name="PDR_INTERROTTI" xdb:SQLName="PDR_INTERROTTI" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="PDR_RIPRISTINATI" xdb:SQLName="PDR_RIPRISTINATI" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="PRESENZA_CMOR" xdb:SQLName="PRESENZA_CMOR" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DATA_ATT_SERV_DEFAULT" xdb:SQLName="DATA_ATT_SERV_DEFAULT" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DATA_CHIUSURA_PDR" xdb:SQLName="DATA_CHIUSURA_PDR" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="CAM" xdb:SQLName="CAM" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="COMPR_CAM" xdb:SQLName="COMPR_CAM" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="PIVA_UTENTE_BILANCIAMENTO" xdb:SQLName="PIVA_UTENTE_BILANCIAMENTO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="T_I_TRACKING_THOR_GASType" xdb:SQLType="T_I_TRACKING_THOR_GAS" xdb:SQLSchema="THOR_IN" xdb:maintainDOM="false">
+  <xsd:sequence>
+   <xsd:element name="CD_PRATICA_THOR" xdb:SQLName="CD_PRATICA_THOR" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="PDR" xdb:SQLName="PDR" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="SERVIZIO_THOR" type="T_I_DETTAGLIOType" xdb:SQLName="SERVIZIO_THOR" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_DETTAGLIO"/>
+   <xsd:element name="SERVIZIO_DL" type="T_I_DETTAGLIOType" xdb:SQLName="SERVIZIO_DL" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_DETTAGLIO"/>
+   <xsd:element name="STATO" xdb:SQLName="STATO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DISTRIBUTORE" type="T_I_DISTRIBUTOREType" xdb:SQLName="DISTRIBUTORE" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_DISTRIBUTORE"/>
+   <xsd:element name="SOCIETA_VENDITA" type="T_I_DETTAGLIOType" xdb:SQLName="SOCIETA_VENDITA" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_DETTAGLIO"/>
+   <xsd:element name="AREA_GESTIONALE" type="T_I_DETTAGLIOType" xdb:SQLName="AREA_GESTIONALE" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_DETTAGLIO"/>
+   <xsd:element name="AREA_GESTIONALE_USCENTE" type="T_I_DETTAGLIOType" xdb:SQLName="AREA_GESTIONALE_USCENTE" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_DETTAGLIO"/>
+   <xsd:element name="SISTEMA_FATTURAZIONE" type="T_I_DETTAGLIOType" xdb:SQLName="SISTEMA_FATTURAZIONE" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_DETTAGLIO"/>
+   <xsd:element name="SISTEMA_ORIGINE" type="T_I_DETTAGLIOType" xdb:SQLName="SISTEMA_ORIGINE" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_DETTAGLIO"/>
+   <xsd:element name="SISTEMA_DESTINAZIONE" type="T_I_DETTAGLIOType" xdb:SQLName="SISTEMA_DESTINAZIONE" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_DETTAGLIO"/>
+   <xsd:element name="CD_PRATICA_MITTENTE" xdb:SQLName="CD_PRATICA_MITTENTE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="CD_PRATICA_DL" xdb:SQLName="CD_PRATICA_DL" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="CD_PRATICA_TRADER" xdb:SQLName="CD_PRATICA_TRADER" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="FLUSSO" type="T_I_INFO_FLUSSOType" maxOccurs="unbounded" minOccurs="0" xdb:SQLName="FLUSSO" xdb:SQLCollType="T_I_INFO_FLUSSO_LIST" xdb:SQLType="T_I_INFO_FLUSSO" xdb:SQLSchema="THOR_IN" xdb:SQLCollSchema="THOR_IN"/>
+   <xsd:element name="PARTITA_IVA_EDISON" xdb:SQLName="PARTITA_IVA_EDISON" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="T_I_AZIONE_UTENTEType" xdb:SQLType="T_I_AZIONE_UTENTE" xdb:SQLSchema="THOR_IN" xdb:maintainDOM="false">
+  <xsd:sequence>
+   <xsd:element name="AZIONE" xdb:SQLName="AZIONE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="UTENTE" xdb:SQLName="UTENTE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DT_AZIONE" xdb:SQLName="DT_AZIONE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="T_I_TRACKINGType" xdb:SQLType="T_I_TRACKING" xdb:SQLSchema="THOR_IN" xdb:maintainDOM="false">
+  <xsd:sequence>
+   <xsd:element name="COMMODITY" xdb:SQLName="COMMODITY" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="SERVIZIO" xdb:SQLName="SERVIZIO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="CD_FLUSSO" xdb:SQLName="CD_FLUSSO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="SOCIETA_VENDITA" xdb:SQLName="SOCIETA_VENDITA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="AREA_GESTIONALE" xdb:SQLName="AREA_GESTIONALE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="SISTEMA_FATTURAZIONE" xdb:SQLName="SISTEMA_FATTURAZIONE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="SISTEMA_ORIGINE" xdb:SQLName="SISTEMA_ORIGINE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="SISTEMA_DESTINAZIONE" xdb:SQLName="SISTEMA_DESTINAZIONE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="CD_PRATICA_MITTENTE" xdb:SQLName="CD_PRATICA_MITTENTE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="CD_PRATICA_THOR" xdb:SQLName="CD_PRATICA_THOR" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="CD_PRATICA_DISTRIBUTORE" xdb:SQLName="CD_PRATICA_DISTRIBUTORE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="T_I_CLIENTEType" xdb:SQLType="T_I_CLIENTE" xdb:SQLSchema="THOR_IN" xdb:maintainDOM="false">
+  <xsd:sequence>
+   <xsd:element name="NOME" xdb:SQLName="NOME" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="COGNOME" xdb:SQLName="COGNOME" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="RAGIONE_SOCIALE" xdb:SQLName="RAGIONE_SOCIALE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="CD_FISCALE" xdb:SQLName="CD_FISCALE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="PT_IVA" xdb:SQLName="PT_IVA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="TELEFONO" xdb:SQLName="TELEFONO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="EMAIL" xdb:SQLName="EMAIL" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="CELLULARE" xdb:SQLName="CELLULARE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="FAX" xdb:SQLName="FAX" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="CD_FISCALE_STRANIERO" xdb:SQLName="CD_FISCALE_STRANIERO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="T_I_INDIRIZZOType" xdb:SQLType="T_I_INDIRIZZO" xdb:SQLSchema="THOR_IN" xdb:maintainDOM="false">
+  <xsd:sequence>
+   <xsd:element name="TOPONIMO" xdb:SQLName="TOPONIMO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="VIA" xdb:SQLName="VIA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="CIVICO" xdb:SQLName="CIVICO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="ESTENSIONE" xdb:SQLName="ESTENSIONE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="CAP" xdb:SQLName="CAP" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="ISTAT" xdb:SQLName="ISTAT" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="COMUNE" xdb:SQLName="COMUNE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="PROVINCIA" xdb:SQLName="PROVINCIA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="SCALA" xdb:SQLName="SCALA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="PIANO" xdb:SQLName="PIANO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="INTERNO" xdb:SQLName="INTERNO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="FRAZIONE" xdb:SQLName="FRAZIONE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="PRESSO" xdb:SQLName="PRESSO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="NAZIONE" xdb:SQLName="NAZIONE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="ALTRO" xdb:SQLName="ALTRO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="T_I_LETTURA_EEType" xdb:SQLType="T_I_LETTURA_EE" xdb:SQLSchema="THOR_IN" xdb:maintainDOM="false">
+  <xsd:sequence>
+   <xsd:element name="MATRICOLA_ATTIVA" xdb:SQLName="MATRICOLA_ATTIVA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="MATRICOLA_REATTIVA" xdb:SQLName="MATRICOLA_REATTIVA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="MATRICOLA_POTENZA" xdb:SQLName="MATRICOLA_POTENZA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="ATTIVA_F1" xdb:SQLName="ATTIVA_F1" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="ATTIVA_F2" xdb:SQLName="ATTIVA_F2" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="ATTIVA_F3" xdb:SQLName="ATTIVA_F3" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="REATTIVA_F1" xdb:SQLName="REATTIVA_F1" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="REATTIVA_F2" xdb:SQLName="REATTIVA_F2" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="REATTIVA_F3" xdb:SQLName="REATTIVA_F3" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="POTENZA_F1" xdb:SQLName="POTENZA_F1" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="POTENZA_F2" xdb:SQLName="POTENZA_F2" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="POTENZA_F3" xdb:SQLName="POTENZA_F3" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DATA" xdb:SQLName="DATA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="TIPOLOGIA" xdb:SQLName="TIPOLOGIA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="T_I_STAGIONALE_RICORRENTEType" xdb:SQLType="T_I_STAGIONALE_RICORRENTE" xdb:SQLSchema="THOR_IN" xdb:maintainDOM="false">
+  <xsd:sequence>
+   <xsd:element name="STAG_RIC" xdb:SQLName="STAG_RIC" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DT_INIZIO" xdb:SQLName="DT_INIZIO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DT_FINE" xdb:SQLName="DT_FINE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="T_I_POD_DA_UNIFICAREType" xdb:SQLType="T_I_POD_DA_UNIFICARE" xdb:SQLSchema="THOR_IN" xdb:maintainDOM="false">
+  <xsd:sequence>
+   <xsd:element name="POSIZIONE" xdb:SQLName="POSIZIONE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="POD" xdb:SQLName="POD" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="T_I_ANNULLAMENTOType" xdb:SQLType="T_I_ANNULLAMENTO" xdb:SQLSchema="THOR_IN" xdb:maintainDOM="false">
+  <xsd:sequence>
+   <xsd:element name="DT_RICHIESTA" xdb:SQLName="DT_RICHIESTA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="MOTIVAZIONE" xdb:SQLName="MOTIVAZIONE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="CAUSALE" xdb:SQLName="CAUSALE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="T_I_APPUNTAMENTOType" xdb:SQLType="T_I_APPUNTAMENTO" xdb:SQLSchema="THOR_IN" xdb:maintainDOM="false">
+  <xsd:sequence>
+   <xsd:element name="DT_DISPONIBILITA" xdb:SQLName="DT_DISPONIBILITA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="FASCIA_DISPONIBILITA" xdb:SQLName="FASCIA_DISPONIBILITA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="T_I_ALLEGATOType" xdb:SQLType="T_I_ALLEGATO" xdb:SQLSchema="THOR_IN" xdb:maintainDOM="false">
+  <xsd:sequence>
+   <xsd:element name="ID" xdb:SQLName="ID" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="TIPOLOGIA" xdb:SQLName="TIPOLOGIA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="T_I_CONTESTAZIONEType" xdb:SQLType="T_I_CONTESTAZIONE" xdb:SQLSchema="THOR_IN" xdb:maintainDOM="false">
+  <xsd:sequence>
+   <xsd:element name="SOGGETTO" xdb:SQLName="SOGGETTO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="OGGETTO" xdb:SQLName="OGGETTO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="T_I_POTENZAType" xdb:SQLType="T_I_POTENZA" xdb:SQLSchema="THOR_IN" xdb:maintainDOM="false">
+  <xsd:sequence>
+   <xsd:element name="IMPEGNATA" xdb:SQLName="IMPEGNATA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DISPONIBILE" xdb:SQLName="DISPONIBILE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="FRANCHIGIA" xdb:SQLName="FRANCHIGIA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="T_I_TENSIONEType" xdb:SQLType="T_I_TENSIONE" xdb:SQLSchema="THOR_IN" xdb:maintainDOM="false">
+  <xsd:sequence>
+   <xsd:element name="ALIMENTAZIONE" xdb:SQLName="ALIMENTAZIONE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="FASE" xdb:SQLName="FASE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="MONO_TRIFASE" xdb:SQLName="MONO_TRIFASE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="T_I_DATI_COMMERCIALIType" xdb:SQLType="T_I_DATI_COMMERCIALI" xdb:SQLSchema="THOR_IN" xdb:maintainDOM="false">
+  <xsd:sequence>
+   <xsd:element name="USO_ENERGIA" xdb:SQLName="USO_ENERGIA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="TIPO_CONTRATTO" xdb:SQLName="TIPO_CONTRATTO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="SETTORE_MERCEOLOGICO" xdb:SQLName="SETTORE_MERCEOLOGICO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="TRATTAMENTO_IVA" xdb:SQLName="TRATTAMENTO_IVA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="OPZIONE_TARIFFARIA" xdb:SQLName="OPZIONE_TARIFFARIA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="T_I_TRIBUTIType" xdb:SQLType="T_I_TRIBUTI" xdb:SQLSchema="THOR_IN" xdb:maintainDOM="false">
+  <xsd:sequence>
+   <xsd:element name="ACCISE" xdb:SQLName="ACCISE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="ADDIZIONALE_COMUNALE" xdb:SQLName="ADDIZIONALE_COMUNALE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="ADDIZIONALE_PROVINCIALE" xdb:SQLName="ADDIZIONALE_PROVINCIALE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="ALIQUOTA_IVA" xdb:SQLName="ALIQUOTA_IVA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="ALTRE_INFORMAZIONI" xdb:SQLName="ALTRE_INFORMAZIONI" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="T_I_AUTOCERTIFICAZIONIType" xdb:SQLType="T_I_AUTOCERTIFICAZIONI" xdb:SQLSchema="THOR_IN" xdb:maintainDOM="false">
+  <xsd:sequence>
+   <xsd:element name="CONTRATTO_CONNESSIONE" xdb:SQLName="CONTRATTO_CONNESSIONE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="ISTANZA" xdb:SQLName="ISTANZA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="SOLLEVAMENTO_PERSONE" xdb:SQLName="SOLLEVAMENTO_PERSONE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="STIPULA_CONTRATTO_FORNITURA" xdb:SQLName="STIPULA_CONTRATTO_FORNITURA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="T_I_DISALIMENTABILITAType" xdb:SQLType="T_I_DISALIMENTABILITA" xdb:SQLSchema="THOR_IN" xdb:maintainDOM="false">
+  <xsd:sequence>
+   <xsd:element name="DISALIMENTABILE" xdb:SQLName="DISALIMENTABILE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="CATEGORIA_DISALIMENTABILITA" xdb:SQLName="CATEGORIA_DISALIMENTABILITA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="AUTOCERTIFICAZIONE_ASL" xdb:SQLName="AUTOCERTIFICAZIONE_ASL" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="TELEFONO_PREAVVISO" xdb:SQLName="TELEFONO_PREAVVISO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="AUTOCERTIFICAZ_LIBERATORIA" xdb:SQLName="AUTOCERTIFICAZ_LIBERATORIA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="T_I_RECESSOType" xdb:SQLType="T_I_RECESSO" xdb:SQLSchema="THOR_IN" xdb:maintainDOM="false">
+  <xsd:sequence>
+   <xsd:element name="RECESSO" xdb:SQLName="RECESSO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="CONTESTATO" xdb:SQLName="CONTESTATO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="TEMPISTICA" xdb:SQLName="TEMPISTICA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="BLOCCANTE" xdb:SQLName="BLOCCANTE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="T_I_SOGGETTO_DI_VENDITAType" xdb:SQLType="T_I_SOGGETTO_DI_VENDITA" xdb:SQLSchema="THOR_IN" xdb:maintainDOM="false">
+  <xsd:sequence>
+   <xsd:element name="CODICE_BP" xdb:SQLName="CODICE_BP" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DESCRIZIONE" xdb:SQLName="DESCRIZIONE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="TIPOLOGIA" xdb:SQLName="TIPOLOGIA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="T_I_AMMISSIBILITAType" xdb:SQLType="T_I_AMMISSIBILITA" xdb:SQLSchema="THOR_IN" xdb:maintainDOM="false">
+  <xsd:sequence>
+   <xsd:element name="ESITO" xdb:SQLName="ESITO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="CAUSALE" xdb:SQLName="CAUSALE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="MOTIVAZIONE" xdb:SQLName="MOTIVAZIONE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DT_AMMISSIBILITA" xdb:SQLName="DT_AMMISSIBILITA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="T_I_DATI_TECNICI_PREVENTIVOType" xdb:SQLType="T_I_DATI_TECNICI_PREVENTIVO" xdb:SQLSchema="THOR_IN" xdb:maintainDOM="false">
+  <xsd:sequence>
+   <xsd:element name="PREVENTIVO" type="T_I_PREVENTIVOType" xdb:SQLName="PREVENTIVO" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_PREVENTIVO"/>
+   <xsd:element name="DATA_INVIO" xdb:SQLName="DATA_INVIO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DATA_RICHIESTA" xdb:SQLName="DATA_RICHIESTA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="PERIODO_VALIDITA_MESI" xdb:SQLName="PERIODO_VALIDITA_MESI" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="TIPO" xdb:SQLName="TIPO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="ELEMENTI_NECESSARI" xdb:SQLName="ELEMENTI_NECESSARI" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DOCUMENTAZIONE" xdb:SQLName="DOCUMENTAZIONE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="TEMPI_AUTORIZZAZIONI" xdb:SQLName="TEMPI_AUTORIZZAZIONI" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="MOD_ACCETT_PREVENTIVO" xdb:SQLName="MOD_ACCETT_PREVENTIVO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DISTANZA_CABINA" xdb:SQLName="DISTANZA_CABINA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="NUOVA_CABINA" xdb:SQLName="NUOVA_CABINA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="RADD_QTA_DISTANZA" xdb:SQLName="RADD_QTA_DISTANZA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DATA_PREV_INTERVENTO" xdb:SQLName="DATA_PREV_INTERVENTO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="FATTIBILITA" xdb:SQLName="FATTIBILITA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="NUMERO_TENTATIVI" xdb:SQLName="NUMERO_TENTATIVI" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="T_I_ESITOType" xdb:SQLType="T_I_ESITO" xdb:SQLSchema="THOR_IN" xdb:maintainDOM="false">
+  <xsd:sequence>
+   <xsd:element name="ESITO" xdb:SQLName="ESITO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="MOTIVAZIONE" xdb:SQLName="MOTIVAZIONE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DATA" xdb:SQLName="DATA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="CAUSALE" xdb:SQLName="CAUSALE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="T_I_DATI_TECNICI_LETTURA_EEType" xdb:SQLType="T_I_DATI_TECNICI_LETTURA_EE" xdb:SQLSchema="THOR_IN" xdb:maintainDOM="false">
+  <xsd:sequence>
+   <xsd:element name="LETTURA" type="T_I_LETTURA_EEType" xdb:SQLName="LETTURA" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_LETTURA_EE"/>
+   <xsd:element name="MISURATORE_ELETTRONICO" xdb:SQLName="MISURATORE_ELETTRONICO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="TIPOLOGIA_MISURATORE" xdb:SQLName="TIPOLOGIA_MISURATORE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="COSTANTE_TRASF_ATTIVA" xdb:SQLName="COSTANTE_TRASF_ATTIVA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="COSTANTE_TRASF_REATTIVA" xdb:SQLName="COSTANTE_TRASF_REATTIVA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="COSTANTE_TRASF_POTENZA" xdb:SQLName="COSTANTE_TRASF_POTENZA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="MALFUNZIONAMENTO" xdb:SQLName="MALFUNZIONAMENTO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="ACQUISITO_CONS_SOST" xdb:SQLName="ACQUISITO_CONS_SOST" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="IMMEDIATA_SOST" xdb:SQLName="IMMEDIATA_SOST" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="T_I_PREDETERMINABILITAType" xdb:SQLType="T_I_PREDETERMINABILITA" xdb:SQLSchema="THOR_IN" xdb:maintainDOM="false">
+  <xsd:sequence>
+   <xsd:element name="TESTO" xdb:SQLName="TESTO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="CD_FASCIA_DISTANZA" xdb:SQLName="CD_FASCIA_DISTANZA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="QUOTA_POTENZA" xdb:SQLName="QUOTA_POTENZA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="QUOTA_DISTANZA" xdb:SQLName="QUOTA_DISTANZA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="ONERI_AMMINISTRATIVI" xdb:SQLName="ONERI_AMMINISTRATIVI" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="T_I_TIMOEType" xdb:SQLType="T_I_TIMOE" xdb:SQLSchema="THOR_IN" xdb:maintainDOM="false">
+  <xsd:sequence>
+   <xsd:element name="PRESENZA_CMOR" xdb:SQLName="PRESENZA_CMOR" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DATE_SOSPENSIONE" xdb:SQLName="DATE_SOSPENSIONE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="SOSPESO_MOROSITA" xdb:SQLName="SOSPESO_MOROSITA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DATE_SWITCH" xdb:SQLName="DATE_SWITCH" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DATA_SALVAGARDIA" xdb:SQLName="DATA_SALVAGARDIA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DATA_ULTIMA_RICH_SOSPENSIONE" xdb:SQLName="DATA_ULTIMA_RICH_SOSPENSIONE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DATA_ULTIMA_SOSPENSIONE" xdb:SQLName="DATA_ULTIMA_SOSPENSIONE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="RISOLUZIONE_CONTRATTUALE" xdb:SQLName="RISOLUZIONE_CONTRATTUALE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="T_I_TRADERType" xdb:SQLType="T_I_TRADER" xdb:SQLSchema="THOR_IN" xdb:maintainDOM="false">
+  <xsd:sequence>
+   <xsd:element name="PT_IVA" xdb:SQLName="PT_IVA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="RAGIONE_SOCIALE" xdb:SQLName="RAGIONE_SOCIALE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="EMAIL" xdb:SQLName="EMAIL" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="T_I_CRPPType" xdb:SQLType="T_I_CRPP" xdb:SQLSchema="THOR_IN" xdb:maintainDOM="false">
+  <xsd:sequence>
+   <xsd:element name="MM1_F1" xdb:SQLName="MM1_F1" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="MM1_F2" xdb:SQLName="MM1_F2" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="MM1_F3" xdb:SQLName="MM1_F3" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="MM_F1" xdb:SQLName="MM_F1" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="MM_F2" xdb:SQLName="MM_F2" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="MM_F3" xdb:SQLName="MM_F3" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="T_I_DETTAGLIOType" xdb:SQLType="T_I_DETTAGLIO" xdb:SQLSchema="THOR_IN" xdb:maintainDOM="false">
+  <xsd:sequence>
+   <xsd:element name="ID" xdb:SQLName="ID" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DESCRIZIONE" xdb:SQLName="DESCRIZIONE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="T_I_DISTRIBUTOREType" xdb:SQLType="T_I_DISTRIBUTORE" xdb:SQLSchema="THOR_IN" xdb:maintainDOM="false">
+  <xsd:sequence>
+   <xsd:element name="COD_AUTHORITY" xdb:SQLName="COD_AUTHORITY" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="RAGIONE_SOCIALE" xdb:SQLName="RAGIONE_SOCIALE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="PARTITA_IVA" xdb:SQLName="PARTITA_IVA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="COD_CONTRATTO_DISP" xdb:SQLName="COD_CONTRATTO_DISP" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="T_I_INFO_FLUSSOType" xdb:SQLType="T_I_INFO_FLUSSO" xdb:SQLSchema="THOR_IN" xdb:maintainDOM="false">
+  <xsd:sequence>
+   <xsd:element name="FLUSSO" xdb:SQLName="FLUSSO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="UTENTE" xdb:SQLName="UTENTE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="CANALE" xdb:SQLName="CANALE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="ID" xdb:SQLName="ID" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DT_FLUSSO" xdb:SQLName="DT_FLUSSO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DIREZIONE" xdb:SQLName="DIREZIONE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="ENTITA" xdb:SQLName="ENTITA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="TIPO_ENTITA" xdb:SQLName="TIPO_ENTITA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="T_I_DATI_VENDITAType" xdb:SQLType="T_I_DATI_VENDITA" xdb:SQLSchema="THOR_IN" xdb:maintainDOM="false">
+  <xsd:sequence>
+   <xsd:element name="ALIQUOTA_IVA" xdb:SQLName="ALIQUOTA_IVA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="IMPOSTE_AGEVOLATE" xdb:SQLName="IMPOSTE_AGEVOLATE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="MERCATO_APPARTENENZA" xdb:SQLName="MERCATO_APPARTENENZA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="CD_OFFERTA" xdb:SQLName="CD_OFFERTA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="MOROSITA_BLOCCANTE" xdb:SQLName="MOROSITA_BLOCCANTE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="TRADER_USCENTE" xdb:SQLName="TRADER_USCENTE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="T_I_DATI_TECNICIType" xdb:SQLType="T_I_DATI_TECNICI" xdb:SQLSchema="THOR_IN" xdb:maintainDOM="false">
+  <xsd:sequence>
+   <xsd:element name="PDR_PRESSIONE" xdb:SQLName="PDR_PRESSIONE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="MAX_PRELIEVO_ORA" xdb:SQLName="MAX_PRELIEVO_ORA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="POTENZA_TOTALE_UTILIZZATA" xdb:SQLName="POTENZA_TOTALE_UTILIZZATA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="CATEGORIA_USO" xdb:SQLName="CATEGORIA_USO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="CLASSE_PRELIEVO" xdb:SQLName="CLASSE_PRELIEVO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="PRELIEVO_ANNUO_PREVISTO" xdb:SQLName="PRELIEVO_ANNUO_PREVISTO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="POTENZA_MAX_RICHIESTA" xdb:SQLName="POTENZA_MAX_RICHIESTA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="POTENZA_TOTALE_INSTALLATA" xdb:SQLName="POTENZA_TOTALE_INSTALLATA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="EROGAZIONE_SERVIZIO_ENERGIA" xdb:SQLName="EROGAZIONE_SERVIZIO_ENERGIA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="SHIPPER" xdb:SQLName="SHIPPER" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="FORNITURA_REMI" xdb:SQLName="FORNITURA_REMI" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="CG" xdb:SQLName="CG" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="CONSUMO_ANNUO" xdb:SQLName="CONSUMO_ANNUO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DATI_TECNICI_RICHIESTI" xdb:SQLName="DATI_TECNICI_RICHIESTI" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="COMPETENZA_LETTURA" xdb:SQLName="COMPETENZA_LETTURA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="PERIODICITA_LETTURA" xdb:SQLName="PERIODICITA_LETTURA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="T_I_LETTURA_GASType" xdb:SQLType="T_I_LETTURA_GAS" xdb:SQLSchema="THOR_IN" xdb:maintainDOM="false">
+  <xsd:sequence>
+   <xsd:element name="MATRICOLA" xdb:SQLName="MATRICOLA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="NR_CIFRE" xdb:SQLName="NR_CIFRE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="CLASSE" xdb:SQLName="CLASSE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="ANNO" xdb:SQLName="ANNO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="VALORE" xdb:SQLName="VALORE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DT_LETTURA" xdb:SQLName="DT_LETTURA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="TIPO" xdb:SQLName="TIPO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="COEFF_C" xdb:SQLName="COEFF_C" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="ACCESSIBILITA" xdb:SQLName="ACCESSIBILITA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DT_ULTIMA_VERIFICA" xdb:SQLName="DT_ULTIMA_VERIFICA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="GRUPPO_MIS_INTEGRATO" xdb:SQLName="GRUPPO_MIS_INTEGRATO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DATA_INSTALLAZIONE" xdb:SQLName="DATA_INSTALLAZIONE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="TELEGESTIONE" xdb:SQLName="TELEGESTIONE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="TIPOLOGIA" xdb:SQLName="TIPOLOGIA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="T_I_BONUSType" xdb:SQLType="T_I_BONUS" xdb:SQLSchema="THOR_IN" xdb:maintainDOM="false">
+  <xsd:sequence>
+   <xsd:element name="BONUS" xdb:SQLName="BONUS" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DATA_INIZIO" xdb:SQLName="DATA_INIZIO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DATA_FINE" xdb:SQLName="DATA_FINE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="MESE_RINNOVO" xdb:SQLName="MESE_RINNOVO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="TIPOLOGIA" xdb:SQLName="TIPOLOGIA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="T_I_TRIBUTI_GASType" xdb:SQLType="T_I_TRIBUTI_GAS" xdb:SQLSchema="THOR_IN" xdb:maintainDOM="false">
+  <xsd:sequence>
+   <xsd:element name="ADDIZIONALE_REGIONALE" xdb:SQLName="ADDIZIONALE_REGIONALE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="ACCISE" xdb:SQLName="ACCISE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="ALTRE_INFORMAZIONI" xdb:SQLName="ALTRE_INFORMAZIONI" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="T_I_VERIFICAType" xdb:SQLType="T_I_VERIFICA" xdb:SQLSchema="THOR_IN" xdb:maintainDOM="false">
+  <xsd:sequence>
+   <xsd:element name="ESITO" xdb:SQLName="ESITO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="VERIFICA_LABORATORIO" xdb:SQLName="VERIFICA_LABORATORIO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="CAUSE_LABORATORIO" xdb:SQLName="CAUSE_LABORATORIO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="RIFERIMENTO_RESOCONTO" xdb:SQLName="RIFERIMENTO_RESOCONTO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DATA_SOSTITUZIONE" xdb:SQLName="DATA_SOSTITUZIONE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="T_I_SECONDO_APPUNTAMENTOType" xdb:SQLType="T_I_SECONDO_APPUNTAMENTO" xdb:SQLSchema="THOR_IN" xdb:maintainDOM="false">
+  <xsd:sequence>
+   <xsd:element name="CODICE_APPUNTAMENTO" xdb:SQLName="CODICE_APPUNTAMENTO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="APPUNTAMENTO" type="T_I_APPUNTAMENTOType" xdb:SQLName="APPUNTAMENTO" xdb:SQLSchema="THOR_IN" xdb:SQLType="T_I_APPUNTAMENTO"/>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="T_I_ANNULLAMENTO_APPUNTAMENTOType" xdb:SQLType="T_I_ANNULLAMENTO_APPUNTAMENTO" xdb:SQLSchema="THOR_IN" xdb:maintainDOM="false">
+  <xsd:sequence>
+   <xsd:element name="DATA_ANNULLAMENTO" xdb:SQLName="DATA_ANNULLAMENTO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="CAUSA_ANNULLAMENTO" xdb:SQLName="CAUSA_ANNULLAMENTO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DATA_LIMITE" xdb:SQLName="DATA_LIMITE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="T_I_DOCUMENTAZIONEType" xdb:SQLType="T_I_DOCUMENTAZIONE" xdb:SQLSchema="THOR_IN" xdb:maintainDOM="false">
+  <xsd:sequence>
+   <xsd:element name="RIFERIMENTO" xdb:SQLName="RIFERIMENTO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="MANCANTE" xdb:SQLName="MANCANTE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="INDIRIZZO_INVIO" xdb:SQLName="INDIRIZZO_INVIO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DATA_RICEZIONE" xdb:SQLName="DATA_RICEZIONE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DATA_ACCERTAMENTO" xdb:SQLName="DATA_ACCERTAMENTO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="T_I_PREVENTIVOType" xdb:SQLType="T_I_PREVENTIVO" xdb:SQLSchema="THOR_IN" xdb:maintainDOM="false">
+  <xsd:sequence>
+   <xsd:element name="ID" xdb:SQLName="ID" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="CD_DL" xdb:SQLName="CD_DL" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="IMPORTO" xdb:SQLName="IMPORTO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DT_SCADENZA" xdb:SQLName="DT_SCADENZA" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="GIORNI_MAX_ESECUZIONE_LAVORO" xdb:SQLName="GIORNI_MAX_ESECUZIONE_LAVORO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DETTAGLIO" type="T_I_DETTAGLIO_PREVENTIVOType" maxOccurs="unbounded" minOccurs="0" xdb:SQLName="DETTAGLIO" xdb:SQLCollType="T_I_DETTAGLIO_PREVENTIVO_LIST" xdb:SQLType="T_I_DETTAGLIO_PREVENTIVO" xdb:SQLSchema="THOR_IN" xdb:SQLCollSchema="THOR_IN"/>
+   <xsd:element name="NOTE" xdb:SQLName="NOTE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="T_I_DETTAGLIO_PREVENTIVOType" xdb:SQLType="T_I_DETTAGLIO_PREVENTIVO" xdb:SQLSchema="THOR_IN" xdb:maintainDOM="false">
+  <xsd:sequence>
+   <xsd:element name="PROGRESSIVO" xdb:SQLName="PROGRESSIVO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="IMPORTO" xdb:SQLName="IMPORTO" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+   <xsd:element name="DESCRIZIONE" xdb:SQLName="DESCRIZIONE" xdb:SQLType="VARCHAR2">
+    <xsd:simpleType>
+     <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16000"/>
+     </xsd:restriction>
+    </xsd:simpleType>
+   </xsd:element>
+  </xsd:sequence>
+ </xsd:complexType>
+</xsd:schema>
