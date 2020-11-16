@@ -14,6 +14,8 @@ spec:
       labels:
         app: thr-qa-comdata-tg
     spec:
+      nodeSelector:
+          function: THR-Application-Server
       serviceAccountName: thr-qa-sa
       securityContext:
         fsGroup: 9000
