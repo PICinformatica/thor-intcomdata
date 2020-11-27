@@ -28,32 +28,35 @@ class RequestMapper {
     }
 
     fun createRequestCutOff(tseRequest: CutOff): TICUTOFFType {
-        val requestCutOff = TICUTOFFType()
-        requestCutOff.id = tseRequest.id
-        requestCutOff.destinatario = tseRequest.destinatario
-        requestCutOff.servizio = tseRequest.servizio
-        requestCutOff.utility = tseRequest.utility
-        requestCutOff.maxrichieste = tseRequest.maxRichieste
-        requestCutOff.numerorichieste = tseRequest.numeroRichieste
-        requestCutOff.stato = tseRequest.stato
-        requestCutOff.tipodestinatario = tseRequest.tipoDestinatario
-        requestCutOff.created = tseRequest.created
-        requestCutOff.azioniutente = addAzioniUtenteCutOff(tseRequest.azioniUtente)
-        requestCutOff.primariga = tseRequest.primaRiga
-        requestCutOff.formato = tseRequest.formato
-        requestCutOff.separatore = tseRequest.separatore
-        requestCutOff.idtemplate = tseRequest.idTemplate
-        requestCutOff.flusso = tseRequest.flusso
-        requestCutOff.linkfile = tseRequest.linkFile
-        requestCutOff.utente = tseRequest.utente
-        requestCutOff.flagselected = tseRequest.isFlagSelected?.toString()
-        requestCutOff.datadecorrenza = tseRequest.dataDecorrenza
-        requestCutOff.email = tseRequest.email
-        requestCutOff.ragionesociale = tseRequest.ragioneSociale
-        requestCutOff.portale = tseRequest.portale
-        requestCutOff.critico = tseRequest.critico
+        val res = TICUTOFFType()
+        res.id = tseRequest.id
+        res.destinatario = tseRequest.destinatario
+        res.servizio = tseRequest.servizio
+        res.utility = tseRequest.utility
+        res.maxrichieste = tseRequest.maxRichieste
+        res.numerorichieste = tseRequest.numeroRichieste
+        res.stato = tseRequest.stato
+        res.tipodestinatario = tseRequest.tipoDestinatario
+        res.created = tseRequest.created
+        res.azioniutente = addAzioniUtenteCutOff(tseRequest.azioniUtente)
+        res.primariga = tseRequest.primaRiga
+        res.formato = tseRequest.formato
+        res.separatore = tseRequest.separatore
+        res.idtemplate = tseRequest.idTemplate
+        res.flusso = tseRequest.flusso
+        res.linkfile = tseRequest.linkFile
+        res.utente = tseRequest.utente
+        res.flagselected = tseRequest.isFlagSelected?.toString()
+        res.datadecorrenza = tseRequest.dataDecorrenza
+        res.email = tseRequest.email
+        res.ragionesociale = tseRequest.ragioneSociale
+        res.portale = tseRequest.portale
+        res.critico = tseRequest.critico
 
-        return requestCutOff
+        res.flusso = "DL-I-E050"
+        res.stato = "APERTO, PIENO"
+
+        return res
     }
 
     private fun wsdlToDbTrackingEE(tseRequest: Tracking): TITRACKINGType {
