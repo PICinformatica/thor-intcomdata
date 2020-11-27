@@ -16,7 +16,7 @@ class EndPointStarter(
 ) {
 
     @Bean
-    fun esitiEE(messageLogger: CXFMessageLogger): EndpointImpl {
+    fun endpointEsitiEE(messageLogger: CXFMessageLogger): EndpointImpl {
         val endpoint = EndpointImpl(bus, esitiEE)
         endpoint.publish("/esiti_ee")
         WSUtils.addLogging(endpoint, messageLogger)
@@ -24,7 +24,7 @@ class EndPointStarter(
     }
 
     @Bean
-    fun esitiGas(messageLogger: CXFMessageLogger): EndpointImpl {
+    fun endpointEsitiGas(messageLogger: CXFMessageLogger): EndpointImpl {
         val endpoint = EndpointImpl(bus, esitiGAS)
         endpoint.publish("/esiti_gas")
         WSUtils.addLogging(endpoint, messageLogger)
@@ -32,7 +32,7 @@ class EndPointStarter(
     }
 
     @Bean
-    fun cutoff(messageLogger: CXFMessageLogger): EndpointImpl {
+    fun endpointCutoff(messageLogger: CXFMessageLogger): EndpointImpl {
         val endpoint = EndpointImpl(bus, cutOff)
         endpoint.publish("/cutoff")
         WSUtils.addLogging(endpoint, messageLogger)
