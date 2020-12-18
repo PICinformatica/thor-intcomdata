@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    url: jdbc:oracle:thin:@10.202.236.146:1555:XTHO001P
+    username: THOR_COMDATA
+    password: THOR_COMDATA
+    driverClassName: oracle.jdbc.OracleDriver
+    hikari:
+      minimum-idle: 2
+      maximum-pool-size: 20
+      allow-pool-suspension: true
+      register-mbeans: true

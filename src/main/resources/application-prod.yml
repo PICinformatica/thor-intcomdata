@@ -1,0 +1,8 @@
+spring:
+  profiles:
+    include:
+      - deployed
+      - db-prod
+      - logs-s3-prod
+      - db-logger
+      - credentials-prod
