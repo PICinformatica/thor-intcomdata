@@ -5,3 +5,4 @@ spring:
       - db-dev
       - logs-s3-dev
       - db-logger
+      - credentials-dev

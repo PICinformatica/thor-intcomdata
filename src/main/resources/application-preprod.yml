@@ -5,3 +5,4 @@ spring:
       - db-preprod
       - logs-s3-preprod
       - db-logger
+      - credentials-preprod

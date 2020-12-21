@@ -20,21 +20,6 @@ class ComdataCredentials {
 class SecurityConfig(
 
 ) {
-    @Profile("!prod")
-    @Bean
-    fun fileAuth(): WebSecurityConfigurerAdapter {
-        return object : WebSecurityConfigurerAdapter() {
-            override fun configure(http: HttpSecurity) {
-                http
-                    .anonymous().authorities("ANON")
-                    .and().csrf().disable()
-                    .authorizeRequests { authorize ->
-                        authorize.anyRequest().permitAll()
-                    }
-                    .httpBasic()
-            }
-        }
-    }
     @Profile("prod")
     @Bean
     fun fileAuthProd(comdata: ComdataCredentials): WebSecurityConfigurerAdapter {
