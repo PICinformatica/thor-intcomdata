@@ -20,7 +20,6 @@ class ComdataCredentials {
 class SecurityConfig(
 
 ) {
-    @Profile("prod")
     @Bean
     fun fileAuthProd(comdata: ComdataCredentials): WebSecurityConfigurerAdapter {
         return object : WebSecurityConfigurerAdapter() {
