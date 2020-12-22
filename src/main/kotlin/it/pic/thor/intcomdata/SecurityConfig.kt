@@ -35,7 +35,8 @@ class SecurityConfig(
                         .and().csrf().disable()
                         .authorizeRequests { authorize ->
                             authorize
-                                    .antMatchers("/comdata/*").hasRole("BPEL")
+                                    /* disabilitata autenticazione perché quelli di comdata non sanno usare basic auth...*/
+//                                    .antMatchers("/comdata/*").hasRole("BPEL")
                                     .anyRequest().permitAll()
                         }
                         .httpBasic()

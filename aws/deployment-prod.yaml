@@ -3,25 +3,25 @@ kind: Deployment
 metadata:
   name: intcomdata-deployment
   labels:
-    app: thr-qa-comdata-tg
+    app: thr-prod-comdata-tg
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: thr-qa-comdata-tg
+      app: thr-prod-comdata-tg
   template:
     metadata:
       labels:
-        app: thr-qa-comdata-tg
+        app: thr-prod-comdata-tg
     spec:
       nodeSelector:
           function: THR-Application-Server
-      serviceAccountName: thr-qa-sa
+      serviceAccountName: thr-prod-sa
       securityContext:
         fsGroup: 9000
       containers:
-      - name: intcomdata-qa
-        image: 549662860827.dkr.ecr.eu-central-1.amazonaws.com/thor/intcomdata-qa:1.0.0-SNAPSHOT-20201222121227
+      - name: intcomdata-prod
+        image: 623333656140.dkr.ecr.eu-central-1.amazonaws.com/thor/intcomdata-prod:1.0.0-SNAPSHOT-20201222121216
 
         ports:
         - containerPort: 8443
@@ -33,7 +33,7 @@ spec:
 
         env:
         - name: APP_ENV
-          value: "preprod"
+          value: "prod"
 
         lifecycle:
           preStop:
@@ -59,4 +59,4 @@ spec:
       volumes:
       - name: cert
         secret:
-          secretName: thor-integrazioni-qa.corp.awsedison.it
+          secretName: thor-integrazioni.corp.awsedison.it
