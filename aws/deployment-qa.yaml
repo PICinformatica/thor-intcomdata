@@ -41,14 +41,14 @@ spec:
               command: ["/bin/sh", "-c", "killall java"]
 
         livenessProbe:
-          initialDelaySeconds: 60
+          initialDelaySeconds: 180
           httpGet:
             scheme: HTTPS
             path: /actuator/health/liveness
             port: 8443
 
         readinessProbe:
-          initialDelaySeconds: 60
+          initialDelaySeconds: 180
           periodSeconds: 10
           failureThreshold: 30
           httpGet:
