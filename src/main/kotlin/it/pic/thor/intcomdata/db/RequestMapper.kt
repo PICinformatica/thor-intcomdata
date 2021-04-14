@@ -13,6 +13,11 @@ import it.edison.thorGAS.*
 
 class RequestMapper {
 
+    object DbConstants {
+        const val CANALE = "MANUALE"
+        const val UTENTE = "COMDATA"
+    }
+
     private fun addAzioniUtenteCutOff(azioniUtente: List<Azione>): List<TIAZIONEUTENTEType> {
         val azioniUtenteDb = mutableListOf<TIAZIONEUTENTEType>()
         azioniUtente.forEach { azione: Azione -> azioniUtenteDb.add(wsdlToAzioniList(azione)) }
@@ -258,6 +263,8 @@ class RequestMapper {
         requestEE.misuratorerimosso = wsdlToDbMisuratoreEE(tseRequest.misuratoreRimosso)
         requestEE.cliente = wsdlToDbClienteEE(tseRequest.cliente)
         requestEE.daticommerciali = wsdlToDbDatiCommercialiEE(tseRequest.datiCommerciali)
+        requestEE.canalecomunicazione = DbConstants.CANALE
+        requestEE.utente = DbConstants.UTENTE
 
         val requestEEAll = TITSEEEALLType()
         requestEEAll.inboundrequest = requestEE
@@ -470,6 +477,8 @@ class RequestMapper {
         requestGas.installazionecontatore = tseRequest.installazioneMisuratore
         requestGas.installazionecorrettore = tseRequest.installazioneContatore
         requestGas.riferimentopreventivo = tseRequest.riferimentoPreventivo
+        requestGas.canalecomunicazione = DbConstants.CANALE
+        requestGas.utente = DbConstants.UTENTE
 
         val requestAll = TITSEGASALLType()
         requestAll.inboundrequest = requestGas
