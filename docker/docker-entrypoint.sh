@@ -22,4 +22,4 @@ ENABLE_JMX="$ENABLE_JMX -Djava.rmi.server.hostname=127.0.0.1 "
 ENABLE_JMX="$ENABLE_JMX -Dcom.sun.management.jmxremote.authenticate=false "
 ENABLE_JMX="$ENABLE_JMX -Dcom.sun.management.jmxremote.ssl=false "
 
-su appuser -s /bin/sh -c "java $ENABLE_DEBUG $ENABLE_JMX -Dspring.profiles.active=${APP_ENV} -jar ./app.jar"
+su appuser -s /bin/sh -c "java $ENABLE_DEBUG $ENABLE_JMX -Duser.timezone=Europe/Rome -Dspring.profiles.active=${APP_ENV} -jar ./app.jar"
