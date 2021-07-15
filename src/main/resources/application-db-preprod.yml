@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:oracle:thin:@ewfqgthrdo01-import.ccaf44jvivwg.eu-central-1.rds.amazonaws.com:1521:THRQA
+    url: jdbc:oracle:thin:@ewfqgthrdo02.corp.awsedison.it:1521:THRQA
     username: THOR_COMDATA
     password: THOR_COMDATA
     driverClassName: oracle.jdbc.OracleDriver

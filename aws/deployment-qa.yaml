@@ -21,7 +21,7 @@ spec:
         fsGroup: 9000
       containers:
       - name: intcomdata-qa
-        image: 549662860827.dkr.ecr.eu-central-1.amazonaws.com/thor/intcomdata-qa:1.0.0-SNAPSHOT-20210519110555
+        image: 549662860827.dkr.ecr.eu-central-1.amazonaws.com/thor/intcomdata-qa:1.0.0-SNAPSHOT-20210715140715
 
         ports:
         - containerPort: 8443
