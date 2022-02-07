@@ -1,0 +1,74 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: intcomdata-deployment
+  labels:
+    app: thr-qa-comdata-tg
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: thr-qa-comdata-tg
+  template:
+    metadata:
+      labels:
+        app: thr-qa-comdata-tg
+    spec:
+      nodeSelector:
+          function: THR-Application-Server
+      serviceAccountName: thr-qa-sa
+      securityContext:
+        fsGroup: 9000
+      containers:
+      - name: intcomdata-qa
+        image: app-image
+
+        ports:
+        - containerPort: 8443
+
+        volumeMounts:
+        - name: cert
+          mountPath: "/etc/pki/tls/certs/internal/"
+          readOnly: true
+
+        - name: app-secret-password
+          mountPath: "/var/run/secrets/app-secret-password"
+          readOnly: true
+
+        env:
+        - name: APP_ENV
+          value: "preprod"
+
+        lifecycle:
+          preStop:
+            exec:
+              command: ["/bin/sh", "-c", "killall java"]
+
+        livenessProbe:
+          httpGet:
+            scheme: HTTPS
+            path: /actuator/health/liveness
+            port: 8443
+
+        readinessProbe:
+          httpGet:
+            scheme: HTTPS
+            path: /actuator/health/readiness
+            port: 8443
+
+        startupProbe:
+          periodSeconds: 1
+          failureThreshold: 600
+          httpGet:
+            scheme: HTTPS
+            path: /actuator/health/readiness
+            port: 8443
+
+      volumes:
+      - name: cert
+        secret:
+          secretName: thor-integrazioni-qa.corp.awsedison.it
+
+      - name: app-secret-password
+        secret:
+          secretName: thr-qa-secret-password
