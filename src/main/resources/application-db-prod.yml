@@ -2,7 +2,7 @@ spring:
   datasource:
     url: jdbc:oracle:thin:@EWFPGTHRDO01.CORP.AWSEDISON.IT:1521:THRPROD
     username: THOR_COMDATA
-    password: THOR_COMDATA
+    password: ENC(7BKTrGOIEFf8TLKKv+P0AkUSuC4GsrH3uobdKyGRz43KIrUurd1Ypzu2us6VCZ+7)
     driverClassName: oracle.jdbc.OracleDriver
     hikari:
       minimum-idle: 2
