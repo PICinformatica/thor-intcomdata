@@ -2,7 +2,7 @@ spring:
   datasource:
     url: jdbc:oracle:thin:@ewfqgthrdo02.corp.awsedison.it:1521:THRQA
     username: THOR_COMDATA
-    password: THOR_COMDATA
+    password: ENC(jMAe0PsbHcs/e6etXeI7xXwOjdjlGqasbCazTDdCdqRFftkpSe2a7//ltJsBVMT7)
     driverClassName: oracle.jdbc.OracleDriver
     hikari:
       maximum-pool-size: 20

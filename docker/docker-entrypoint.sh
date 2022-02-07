@@ -14,6 +14,8 @@ fi
 
 echo "starting app (env: $APP_ENV)"
 
+SECRET_KEY=`cat /var/run/secrets/app-secret-password/secret-password-*`
+DECRYPT="-Djasypt.encryptor.password=${SECRET_KEY}"
 ENABLE_DEBUG=" -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 "
 ENABLE_JMX=""
 ENABLE_JMX="$ENABLE_JMX -Dcom.sun.management.jmxremote.port=8090 "
@@ -22,4 +24,4 @@ ENABLE_JMX="$ENABLE_JMX -Djava.rmi.server.hostname=127.0.0.1 "
 ENABLE_JMX="$ENABLE_JMX -Dcom.sun.management.jmxremote.authenticate=false "
 ENABLE_JMX="$ENABLE_JMX -Dcom.sun.management.jmxremote.ssl=false "
 
-su appuser -s /bin/sh -c "java $ENABLE_DEBUG $ENABLE_JMX -Duser.timezone=Europe/Rome -Dspring.profiles.active=${APP_ENV} -jar ./app.jar"
+java -Duser.timezone=Europe/Rome $DECRYPT $ENABLE_DEBUG $ENABLE_JMX -Dspring.profiles.active=${APP_ENV} org.springframework.boot.loader.JarLauncher
